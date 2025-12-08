@@ -1,26 +1,31 @@
 /* Reseteo básico y estilos generales */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap');
+
 body {
-    font-family: system-ui, -apple-system, sans-serif;
+    font-family: 'Orbitron', system-ui, -apple-system, sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 20px;
-    background-color: #f4f4f4;
+    background-color: #020617;
+    color: #e5e7eb;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    background: white;
+    background: #020617;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
+    border: 1px solid #1f2937;
 }
 
 h2 {
-    color: #333;
-    border-left: 5px solid #007bff;
+    color: #f9fafb;
+    border-left: 5px solid #22d3ee;
     padding-left: 10px;
     margin-top: 2rem;
+    text-shadow: 0 0 10px rgba(34, 211, 238, 0.5);
 }
 
 /* Hacemos que las imágenes sean fluidas */
@@ -47,22 +52,23 @@ h2 {
     background-position: center;
     border-radius: 8px;
     transition: background-image 0.3s ease-in-out;
+    border: 1px solid #1f2937;
     
     /* 1. Mobile First (Imagen pequeña por defecto) */
-    background-image: url('https://placehold.co/400x400/555/FFF?text=BG+Mobile');
+    background-image: url('https://placehold.co/400x400/111827/FFFFFF?text=BG+Mobile');
 }
 
 /* 2. Tablet (Media Query) */
 @media (min-width: 600px) {
     .hero-background {
-        background-image: url('https://placehold.co/800x400/666/FFF?text=BG+Tablet');
+        background-image: url('https://placehold.co/800x400/020617/FFFFFF?text=BG+Tablet');
     }
 }
 
 /* 3. Desktop (Media Query) */
 @media (min-width: 1024px) {
     .hero-background {
-        background-image: url('https://placehold.co/1200x400/777/FFF?text=BG+Desktop');
+        background-image: url('https://placehold.co/1200x400/020617/22D3EE?text=BG+Desktop');
     }
 }
 
@@ -70,6 +76,6 @@ h2 {
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .hero-background {
         /* Aquí cargaríamos una imagen @2x para mayor nitidez */
-        border: 2px solid gold; /* Borde dorado solo para indicar que es pantalla retina en este demo */
+        border: 2px solid #facc15; /* Dorado para indicar retina en el demo */
     }
 }

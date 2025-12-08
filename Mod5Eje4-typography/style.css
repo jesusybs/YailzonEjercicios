@@ -1,20 +1,15 @@
 /* =========================================
-   VARIABLES & SISTEMA TIPOGRÁFICO
+   VARIABLES & SISTEMA TIPOGRÁFICO - MODO OSCURO
    ========================================= */
-:root {
-    /* Paleta de colores básica para el ejercicio 
-    */
-    --bg-color: #f8f9fa;
-    --text-color: #2d3436;
-    --accent-color: #0984e3;
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;800&display=swap');
 
-    /* SISTEMA FLUIDO CON CLAMP()
-      Sintaxis: clamp(min, val_dinamico, max)
-      
-      - min: El tamaño más pequeño permitido (ej. móvil).
-      - val_dinamico: Cálculo basado en el ancho del viewport (vw).
-      - max: El tamaño más grande permitido (ej. escritorio).
-    */
+:root {
+    /* Paleta de colores adaptada a dark mode */
+    --bg-color: #020617;
+    --text-color: #e5e7eb;
+    --accent-color: #22d3ee;
+
+    /* SISTEMA FLUIDO CON CLAMP() */
 
     /* Body: Escala de 1rem (16px) a 1.25rem (20px) */
     --fs-body: clamp(1rem, 0.9rem + 0.5vw, 1.25rem);
@@ -45,7 +40,7 @@
 body {
     background-color: var(--bg-color);
     color: var(--text-color);
-    font-family: system-ui, -apple-system, sans-serif;
+    font-family: 'Orbitron', system-ui, -apple-system, sans-serif;
     
     /* Aplicación de la variable fluida base */
     font-size: var(--fs-body);
@@ -61,12 +56,13 @@ h1, h2, h3, h4 {
     font-weight: 800;
     line-height: var(--lh-tight);
     margin-bottom: 0.8em;
-    color: #1a1a1a;
+    color: #e5e7eb;
 }
 
 h1 {
     font-size: var(--fs-h1);
     color: var(--accent-color);
+    text-shadow: 0 0 14px rgba(34, 211, 238, 0.7);
 }
 
 h2 {
@@ -84,6 +80,7 @@ h3 {
 p {
     margin-bottom: 1.5em;
     max-width: 65ch; /* Ancho óptimo de lectura */
+    color: var(--text-color);
 }
 
 .subtitle {
@@ -98,22 +95,24 @@ blockquote {
     font-style: italic;
     font-size: 1.1em;
     margin: 2rem 0;
-    background: #e3e8ec;
+    background: #020617;
     padding: 1rem;
     border-radius: 0 8px 8px 0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
 }
 
 code {
-    background-color: #dfe6e9;
+    background-color: #0f172a;
     padding: 0.2em 0.4em;
     border-radius: 4px;
     font-size: 0.9em;
+    color: #e5e7eb;
 }
 
 hr {
     border: 0;
     height: 1px;
-    background: #b2bec3;
+    background: #1f2937;
     margin: 3rem 0;
 }
 

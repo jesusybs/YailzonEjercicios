@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -9,23 +11,21 @@ html {
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Orbitron', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     line-height: 1.6;
+    background: #020617;
+    color: #e5e7eb;
 }
 
 /* ==============================
    NAVBAR CON FLEXBOX
    ============================== */
 .navbar {
-    background: #1a1a2e;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    
-    /* Position sticky para que se quede fija al hacer scroll */
+    background: #020617;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.7);
     position: sticky;
     top: 0;
     z-index: 1000;
-    
-    /* Transición suave */
     transition: all 0.3s ease;
 }
 
@@ -33,8 +33,6 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
-    
-    /* FLEXBOX: Layout principal de la navbar */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -45,16 +43,13 @@ body {
    LOGO
    ============================== */
 .navbar-logo a {
-    color: white;
+    color: #f9fafb;
     font-size: 1.5rem;
     font-weight: bold;
     text-decoration: none;
-    
-    /* Flexbox para alinear el icono y texto */
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    
     transition: color 0.3s ease;
 }
 
@@ -71,25 +66,18 @@ body {
    ============================== */
 .navbar-menu {
     list-style: none;
-    
-    /* FLEXBOX: Menú horizontal */
     display: flex;
     gap: 0.5rem;
-    
-    /* Margen auto para empujar los botones a la derecha */
     margin: 0 auto 0 0;
 }
 
 .navbar-menu li a {
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(249, 250, 251, 0.9);
     text-decoration: none;
     padding: 0.7rem 1.2rem;
     border-radius: 8px;
-    
-    /* Flexbox para centrar el texto */
     display: flex;
     align-items: center;
-    
     transition: all 0.3s ease;
     font-weight: 500;
     position: relative;
@@ -126,7 +114,6 @@ body {
    BOTONES DE ACCIÓN
    ============================== */
 .navbar-actions {
-    /* FLEXBOX: Alinear botones horizontalmente */
     display: flex;
     gap: 1rem;
     align-items: center;
@@ -144,8 +131,8 @@ body {
 
 .btn-login {
     background: transparent;
-    color: white;
-    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: #e5e7eb;
+    border: 2px solid rgba(148, 163, 184, 0.5);
 }
 
 .btn-login:hover {
@@ -182,12 +169,11 @@ body {
 .navbar-toggle span {
     width: 100%;
     height: 3px;
-    background: white;
+    background: #f9fafb;
     border-radius: 10px;
     transition: all 0.3s ease;
 }
 
-/* Animación del botón hamburguesa cuando está activo */
 .navbar-toggle.active span:nth-child(1) {
     transform: rotate(45deg) translate(8px, 8px);
 }
@@ -209,6 +195,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    background: #020617;
 }
 
 .section-content {
@@ -220,22 +207,24 @@ body {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 3rem;
-    color: #1a1a2e;
+    color: #e5e7eb;
 }
 
+/* HERO */
 .section-hero {
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    background: radial-gradient(circle at top, #1f2937 0%, #020617 50%, #000 100%);
     text-align: center;
 }
 
 .section-hero h1 {
-    color: white;
+    color: #f9fafb;
     font-size: 3.5rem;
     margin-bottom: 1rem;
+    text-shadow: 0 0 15px rgba(129, 140, 248, 0.8);
 }
 
 .section-hero p {
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(229, 231, 235, 0.9);
     font-size: 1.3rem;
     margin-bottom: 2rem;
 }
@@ -276,16 +265,18 @@ body {
 }
 
 .service-card {
-    background: white;
+    background: #020617;
     padding: 2rem;
     border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
     text-align: center;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #1f2937;
 }
 
 .service-card:hover {
     transform: translateY(-10px);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 1);
 }
 
 .service-icon {
@@ -294,21 +285,21 @@ body {
 }
 
 .service-card h3 {
-    color: #1a1a2e;
+    color: #e5e7eb;
     margin-bottom: 1rem;
 }
 
 .service-card p {
-    color: #666;
+    color: #9ca3af;
 }
 
 /* Portfolio */
 .section-dark {
-    background: #1a1a2e;
+    background: #020617;
 }
 
 .section-dark h2 {
-    color: white;
+    color: #f9fafb;
 }
 
 .portfolio-grid {
@@ -340,7 +331,7 @@ body {
     bottom: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.95), transparent);
     color: white;
     padding: 2rem;
     transform: translateY(100%);
@@ -363,21 +354,22 @@ body {
 }
 
 .testimonial {
-    background: white;
+    background: #020617;
     padding: 2rem;
     border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+    border: 1px solid #1f2937;
 }
 
 .testimonial-text {
     font-style: italic;
-    color: #666;
+    color: #9ca3af;
     margin-bottom: 1.5rem;
     line-height: 1.8;
 }
 
 .testimonial-author strong {
-    color: #1a1a2e;
+    color: #e5e7eb;
     display: block;
     margin-bottom: 0.3rem;
 }
@@ -418,8 +410,8 @@ body {
 
 /* Footer */
 .footer {
-    background: #1a1a2e;
-    color: white;
+    background: #020617;
+    color: #9ca3af;
     text-align: center;
     padding: 2rem;
 }
@@ -432,34 +424,31 @@ body {
         padding: 0 1rem;
     }
     
-    /* Mostrar botón hamburguesa */
     .navbar-toggle {
         display: flex;
     }
     
-    /* Ocultar menú y acciones por defecto en móviles */
     .navbar-menu,
     .navbar-actions {
         position: fixed;
         top: 70px;
         left: -100%;
         width: 100%;
-        background: #1a1a2e;
+        background: #020617;
         flex-direction: column;
         align-items: center;
         padding: 2rem 0;
         transition: left 0.3s ease;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
     }
     
     .navbar-actions {
         top: auto;
         bottom: 0;
         padding: 1.5rem 0;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        border-top: 1px solid rgba(148, 163, 184, 0.3);
     }
     
-    /* Mostrar menú cuando está activo */
     .navbar-menu.active {
         left: 0;
     }
@@ -468,7 +457,6 @@ body {
         left: 0;
     }
     
-    /* Menú items verticales */
     .navbar-menu {
         gap: 0;
     }
@@ -488,7 +476,6 @@ body {
         display: none;
     }
     
-    /* Botones en columna */
     .navbar-actions {
         gap: 1rem;
         width: 100%;
@@ -500,7 +487,6 @@ body {
         max-width: 300px;
     }
     
-    /* Ajustar tamaños de fuente */
     .section-hero h1 {
         font-size: 2.5rem;
     }

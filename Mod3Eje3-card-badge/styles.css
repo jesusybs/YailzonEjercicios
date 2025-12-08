@@ -1,3 +1,8 @@
+/* ==============================
+   RESET + FUENTE ORBITRON
+   ============================== */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -5,10 +10,11 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    font-family: 'Orbitron', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #020617 0%, #020617 40%, #111827 100%);
     min-height: 100vh;
     padding: 2rem;
+    color: #e5e7eb;
 }
 
 .container {
@@ -17,15 +23,15 @@ body {
 }
 
 h1 {
-    color: white;
+    color: #f9fafb;
     text-align: center;
     margin-bottom: 0.5rem;
     font-size: 2.5rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
 }
 
 .subtitle {
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(249, 250, 251, 0.8);
     text-align: center;
     margin-bottom: 3rem;
     font-size: 1.1rem;
@@ -42,45 +48,35 @@ h1 {
    CARD CONTAINER
    ============================== */
 .card {
-    /* position: relative es CRUCIAL para que el badge se posicione respecto a la card */
     position: relative;
-    
-    background: white;
+    background: #0b1120;
     border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
     transition: all 0.3s ease;
+    border: 1px solid #1f2937;
 }
 
 .card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.9);
 }
 
 /* ==============================
    BADGE POSICIONADO
    ============================== */
 .badge {
-    /* position: absolute para posicionar respecto al contenedor .card */
     position: absolute;
-    
-    /* Posicionamiento en la esquina superior derecha */
     top: 1rem;
     right: 1rem;
-    
-    /* z-index para asegurar que esté encima de la imagen */
     z-index: 10;
-    
-    /* Estilos visuales */
     padding: 0.5rem 1rem;
     font-size: 0.75rem;
     font-weight: bold;
     border-radius: 20px;
     text-transform: uppercase;
     letter-spacing: 1px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    
-    /* Animación de entrada */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
     animation: badgeBounce 0.5s ease;
 }
 
@@ -111,7 +107,7 @@ h1 {
 
 .badge-hot {
     background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
-    color: #333;
+    color: #111827;
     animation: badgePulse 2s ease-in-out infinite;
 }
 
@@ -145,7 +141,7 @@ h1 {
 }
 
 .badge-premium {
-    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    background: linear-gradient(135deg, #1f2933 0%, #374151 100%);
     color: #ffd700;
     border: 2px solid #ffd700;
 }
@@ -184,13 +180,13 @@ h1 {
 }
 
 .card-content h3 {
-    color: #333;
+    color: #e5e7eb;
     margin-bottom: 0.8rem;
     font-size: 1.3rem;
 }
 
 .card-content p {
-    color: #666;
+    color: #9ca3af;
     margin-bottom: 1.5rem;
     line-height: 1.6;
     font-size: 0.95rem;
@@ -204,20 +200,20 @@ h1 {
     justify-content: space-between;
     align-items: center;
     padding-top: 1rem;
-    border-top: 1px solid #eee;
+    border-top: 1px solid #1f2937;
 }
 
 .price {
     font-size: 1.5rem;
     font-weight: bold;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #818cf8 0%, #a855f7 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
 
 .btn {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
     color: white;
     border: none;
     padding: 0.7rem 1.5rem;
@@ -229,7 +225,7 @@ h1 {
 
 .btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+    box-shadow: 0 5px 20px rgba(99, 102, 241, 0.6);
 }
 
 .btn:active {

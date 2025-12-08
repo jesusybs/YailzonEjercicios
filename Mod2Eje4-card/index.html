@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dominando el Box Model: Tarjeta de Producto Profesional</title>
     <style>
+        /* ============================
+           FUENTE FUTURISTA
+           ============================ */
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap');
+
         * {
             margin: 0;
             padding: 0;
@@ -12,9 +17,10 @@
         }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
-            color: #333;
+            font-family: 'Orbitron', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background:
+                radial-gradient(circle at top, #1f2937 0, #020617 45%, #000 100%);
+            color: #e5e7eb;
             height: 100vh;
             overflow: hidden;
             display: flex;
@@ -34,13 +40,20 @@
             position: absolute;
             width: 100%;
             height: 100%;
-            background: white;
-            border-radius: 16px;
+            background:
+                radial-gradient(circle at top left,
+                    rgba(15,23,42,0.98) 0,
+                    rgba(15,23,42,0.98) 40%,
+                    rgba(15,23,42,0.98) 100%);
+            border-radius: 20px;
             padding: 40px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.85);
+            border: 1px solid rgba(56,189,248,0.6);
             display: flex;
             flex-direction: column;
-            transition: transform 0.6s cubic-bezier(0.645, 0.045, 0.355, 1.000), opacity 0.6s;
+            transition:
+                transform 0.6s cubic-bezier(0.645, 0.045, 0.355, 1.000),
+                opacity 0.6s;
             backface-visibility: hidden;
             opacity: 0;
             transform: rotateY(90deg);
@@ -57,11 +70,13 @@
         
         .slide-title {
             font-size: 2.4rem;
-            color: #2c3e50;
+            color: #f9fafb;
             margin-bottom: 30px;
             padding-bottom: 15px;
-            border-bottom: 3px solid #3498db;
+            border-bottom: 3px solid #38bdf8;
             font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
         }
         
         .slide-content {
@@ -89,20 +104,22 @@
         
         li {
             margin-bottom: 15px;
-            font-size: 1.25rem;
-            color: #2c3e50;
+            font-size: 1.1rem;
+            color: #e5e7eb;
         }
         
         .code-block {
-            background: #2c3e50;
-            color: #ecf0f1;
+            background: #020617;
+            color: #e5e7eb;
             font-family: 'Courier New', monospace;
             padding: 20px;
-            border-radius: 8px;
+            border-radius: 10px;
             margin: 20px 0;
-            font-size: 1.1rem;
-            line-height: 1.5;
+            font-size: 1.05rem;
+            line-height: 1.6;
             overflow-x: auto;
+            border: 1px solid rgba(56,189,248,0.6);
+            box-shadow: 0 16px 40px rgba(15,23,42,0.95);
         }
         
         .card-container {
@@ -116,20 +133,24 @@
         
         .product-card {
             width: 300px;
-            border: 1px solid #e0e0e0;
-            border-radius: 12px;
+            border: 1px solid rgba(148,163,184,0.7);
+            border-radius: 16px;
             padding: 20px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 22px 50px rgba(15,23,42,0.95);
             margin: 20px;
-            background: white;
+            background:
+                linear-gradient(145deg,
+                    rgba(15,23,42,0.98),
+                    rgba(30,64,175,0.9));
             transition: all 0.3s ease;
             box-sizing: border-box;
+            color: #e5e7eb;
         }
         
         .product-card:hover {
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-            transform: translateY(-3px);
-            border-color: #3498db;
+            box-shadow: 0 28px 70px rgba(15,23,42,1);
+            transform: translateY(-6px);
+            border-color: #38bdf8;
         }
         
         .card-image {
@@ -137,16 +158,17 @@
             margin-left: -20px;
             margin-right: -20px;
             margin-top: -20px;
-            border-radius: 12px 12px 0 0;
+            border-radius: 16px 16px 0 0;
             overflow: hidden;
             height: 180px;
-            background: linear-gradient(45deg, #3498db, #2ecc71);
+            background: linear-gradient(135deg, #38bdf8, #6366f1);
             display: flex;
             justify-content: center;
             align-items: center;
-            color: white;
-            font-weight: bold;
+            color: #f9fafb;
+            font-weight: 700;
             font-size: 1.5rem;
+            text-shadow: 0 0 12px rgba(15,23,42,0.8);
         }
         
         .card-content {
@@ -154,21 +176,21 @@
         }
         
         .card-title {
-            font-size: 1.4rem;
-            font-weight: bold;
-            color: #2c3e50;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #e5e7eb;
             margin-bottom: 8px;
         }
         
         .card-price {
-            color: #e74c3c;
-            font-weight: bold;
+            color: #38bdf8;
+            font-weight: 700;
             font-size: 1.5rem;
             margin-bottom: 12px;
         }
         
         .card-description {
-            color: #7f8c8d;
+            color: #9ca3af;
             line-height: 1.5;
             margin-bottom: 20px;
             font-size: 0.95rem;
@@ -176,51 +198,59 @@
         }
         
         .card-button {
-            background: #3498db;
-            color: white;
+            background: linear-gradient(135deg, #38bdf8, #22c55e);
+            color: #020617;
             border: none;
             padding: 10px 15px;
             width: 100%;
-            border-radius: 6px;
-            font-weight: bold;
+            border-radius: 999px;
+            font-weight: 700;
             cursor: pointer;
             transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
         }
         
         .card-button:hover {
-            background: #2980b9;
-            transform: translateY(-1px);
+            background: linear-gradient(135deg, #0ea5e9, #16a34a);
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 14px 35px rgba(34,197,94,0.8);
         }
         
         .box-model-diagram {
             width: 280px;
             height: 350px;
-            background: #f8f9fa;
-            border: 3px solid #3498db;
-            border-radius: 12px;
+            background: rgba(15,23,42,0.95);
+            border: 2px solid #38bdf8;
+            border-radius: 16px;
             position: relative;
             display: flex;
             flex-direction: column;
             padding: 20px;
             margin: 20px;
+            box-shadow: 0 22px 55px rgba(0,0,0,0.9);
         }
         
         .box-model-content {
             flex: 1;
-            background: #2ecc71;
-            border-radius: 6px;
+            background: #22c55e;
+            border-radius: 8px;
             display: flex;
             justify-content: center;
             align-items: center;
-            color: white;
-            font-weight: bold;
+            color: #f9fafb;
+            font-weight: 700;
             font-size: 1.2rem;
+            box-shadow:
+                inset 0 0 20px rgba(15,23,42,0.8),
+                0 0 26px rgba(34,197,94,0.7);
         }
         
         .box-model-label {
             position: absolute;
-            font-weight: bold;
-            color: #e74c3c;
+            font-weight: 700;
+            color: #f97373;
+            text-shadow: 0 0 10px rgba(248,113,113,0.85);
         }
         
         .label-margin {
@@ -232,19 +262,21 @@
         .label-border {
             top: 5px;
             left: 5px;
-            background: #3498db;
-            color: white;
+            background: #38bdf8;
+            color: #020617;
             padding: 2px 6px;
-            border-radius: 3px;
+            border-radius: 4px;
+            text-shadow: none;
         }
         
         .label-padding {
             top: 40px;
             left: 40px;
-            background: #9b59b6;
-            color: white;
+            background: #a855f7;
+            color: #f9fafb;
             padding: 2px 6px;
-            border-radius: 3px;
+            border-radius: 4px;
+            text-shadow: none;
         }
         
         .label-content {
@@ -261,40 +293,44 @@
         }
         
         .card-breakdown {
-            background: #f8f9fa;
-            border-radius: 8px;
+            background: rgba(15,23,42,0.9);
+            border-radius: 12px;
             padding: 20px;
             margin: 20px 0;
+            border: 1px solid rgba(148,163,184,0.6);
         }
         
         .breakdown-item {
             display: flex;
             margin-bottom: 15px;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
         }
         
         .breakdown-label {
-            width: 120px;
-            font-weight: bold;
-            color: #3498db;
+            width: 140px;
+            font-weight: 700;
+            color: #38bdf8;
         }
         
         .breakdown-value {
             flex: 1;
+            color: #e5e7eb;
         }
         
         .implementation-steps {
-            background: #e8f4f8;
+            background: rgba(15,23,42,0.95);
             padding: 20px;
-            border-radius: 8px;
+            border-radius: 12px;
             margin: 20px 0;
+            border-left: 4px solid #38bdf8;
         }
         
         .step {
             margin-bottom: 15px;
             padding-left: 25px;
             position: relative;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
+            color: #e5e7eb;
         }
         
         .step::before {
@@ -302,8 +338,8 @@
             position: absolute;
             left: 0;
             top: 0;
-            color: #27ae60;
-            font-weight: bold;
+            color: #22c55e;
+            font-weight: 700;
         }
         
         .responsive-demo {
@@ -326,27 +362,29 @@
         }
         
         .highlight {
-            background: #fffacd;
-            padding: 2px 6px;
-            border-radius: 3px;
-            font-weight: bold;
+            background: rgba(250, 204, 21, 0.16);
+            padding: 2px 8px;
+            border-radius: 999px;
+            font-weight: 700;
+            color: #facc15;
         }
         
         .key-point {
-            background: #e8f4f8;
-            border-left: 4px solid #3498db;
+            background: rgba(15,23,42,0.95);
+            border-left: 4px solid #38bdf8;
             padding: 15px;
             margin: 15px 0;
-            border-radius: 0 8px 8px 0;
+            border-radius: 0 10px 10px 0;
+            color: #e5e7eb;
         }
         
         .slide-counter {
             position: absolute;
             bottom: 20px;
             right: 30px;
-            font-size: 1.2rem;
-            color: #7f8c8d;
-            font-weight: bold;
+            font-size: 1.1rem;
+            color: #9ca3af;
+            font-weight: 600;
         }
         
         .nav-container {
@@ -376,21 +414,30 @@
             width: 60px;
             height: 60px;
             border-radius: 50%;
-            background: rgba(52, 152, 219, 0.9);
-            color: white;
-            border: none;
+            background:
+                radial-gradient(circle at top,
+                    #38bdf8 0,
+                    #0f172a 60%,
+                    #020617 100%);
+            color: #e5e7eb;
+            border: 1px solid rgba(148,163,184,0.9);
             font-size: 1.8rem;
             cursor: pointer;
             transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 16px 40px rgba(15,23,42,0.95);
             display: flex;
             justify-content: center;
             align-items: center;
         }
         
         .nav-side-btn:hover {
-            background: rgba(41, 128, 185, 0.95);
-            transform: scale(1.1);
+            background:
+                radial-gradient(circle at top,
+                    #0ea5e9 0,
+                    #1f2937 70%,
+                    #020617 100%);
+            transform: scale(1.1) translateY(-2px);
+            box-shadow: 0 22px 55px rgba(15,23,42,1);
         }
         
         .nav-side-btn:active {
