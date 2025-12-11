@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>FoodNight - Reseñas de Restaurante</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Enlace al CSS -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page">
+    <header>
+      <nav class="nav">
+        <div class="logo">
+          <div class="logo-icon">FN</div>
+          <div class="logo-text">
+            <span class="logo-title">FoodNight</span>
+            <span class="logo-subtitle">Blog de reseñas gastronómicas</span>
+          </div>
+        </div>
+        <div class="nav-links">
+          <a href="#inicio">Inicio</a>
+          <a href="resenas.html">Reseñas</a>
+          <a href="sobremi.html">Sobre mí</a>
+          <a href="contacto.html">Contacto</a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section id="inicio" class="hero">
+      <div class="hero-text">
+        <div class="hero-pill">
+          🌙 Reseña destacada
+          <span>Proyecto universitario - Blog de restaurante</span>
+        </div>
+        <h1 class="hero-title">
+          Noche de sabores en <span class="hero-restaurant">La Terraza Urbana</span>
+        </h1>
+        <div class="hero-rating">
+          <div class="stars">★★★★★</div>
+          <span>4.8 / 5 · Fusión moderna · $$$</span>
+        </div>
+        <p>
+          Un restaurante de cocina fusión que mezcla lo mejor de la gastronomía urbana con
+          un ambiente íntimo y cálido. Ideal para cenas especiales, celebraciones o simplemente
+          para escapar de la rutina.
+        </p>
+        <div class="chips">
+          <span class="chip">🍝 Pasta artesanal</span>
+          <span class="chip">🍷 Carta de vinos cuidada</span>
+          <span class="chip">🎵 Música en vivo (viernes)</span>
+          <span class="chip">📍 Centro de la ciudad</span>
+        </div>
+        <button class="btn-primary">
+          Ver reseña completa
+          <span>↓</span>
+        </button>
+      </div>
+
+      <div class="hero-image-card">
+        <!-- IMAGEN PRINCIPAL DEL RESTAURANTE -->
+        <!-- Reemplaza "img/portada-restaurante.jpg" por tu propia imagen -->
+        <img
+          class="hero-img"
+          src="img/portada-restaurante.jpg"
+          alt="Mesa servida del restaurante La Terraza Urbana de noche" />
+        <div class="hero-img-overlay"></div>
+        <div class="hero-badge">
+          <div class="hero-badge-main">
+            <h3>Terraza con vista a la ciudad</h3>
+            <span>Cena bajo luces cálidas, ideal para fotos y momentos especiales.</span>
+          </div>
+          <div class="hero-badge-tag">Reserva recomendada · 20:00 - 22:00</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <main>
+      <section id="resenas">
+        <h2 class="section-title">Últimas reseñas</h2>
+        <p class="section-subtitle">
+          Reseñas breves y claras, evaluando sabor, servicio, ambiente y relación calidad-precio.
+        </p>
+
+        <div class="filters">
+          <button class="filter-btn active" data-filter="todos">Todos</button>
+          <button class="filter-btn" data-filter="gourmet">Gourmet</button>
+          <button class="filter-btn" data-filter="rapida">Comida rápida</button>
+          <button class="filter-btn" data-filter="cafe">Cafetería</button>
+        </div>
+
+        <div class="reviews-list">
+          <!-- CARD 1 -->
+          <article class="review-card" data-tipo="gourmet">
+            <div class="review-img-wrapper">
+              <!-- IMAGEN DEL PLATO PRINCIPAL/INTERIOR -->
+              <img
+                class="review-img"
+                src="img/terraza-plato-firma.jpg"
+                alt="Plato de pasta artesanal con salsa de tomate y albahaca" />
+              <span class="review-tag">Gourmet · Cenas</span>
+            </div>
+            <div class="review-content">
+              <h3>La Terraza Urbana · Fusión contemporánea</h3>
+              <div class="review-meta">
+                <span>⭐ 4.8</span>
+                <span>💰 Precio medio-alto</span>
+                <span>⏱️ Estancia recomendada: 1h 30min</span>
+              </div>
+              <p class="review-text">
+                La carta combina pastas artesanales, risottos y entradas para compartir.
+                Destaca su <strong>raviol de ricotta</strong> con salsa de tomates confitados y
+                albahaca fresca, perfectamente acompañado por su selección de vinos.
+              </p>
+              <p class="review-text review-extra">
+                El servicio fue atento en todo momento, ofreciendo sugerencias sin resultar
+                invasivo. La ambientación, con luces cálidas y música suave, crea un espacio
+                íntimo sin ser excesivamente formal. La relación calidad-precio es coherente
+                con la experiencia, especialmente si se aprovechan los menús de degustación
+                entre semana.
+              </p>
+              <button class="btn-leer-mas">Leer más</button>
+            </div>
+          </article>
+
+          <!-- CARD 2 -->
+          <article class="review-card" data-tipo="rapida">
+            <div class="review-img-wrapper">
+              <!-- IMAGEN DE HAMBURGUESA / COMIDA RÁPIDA -->
+              <img
+                class="review-img"
+                src="img/burger-street.jpg"
+                alt="Hamburguesa gourmet con papas fritas en tabla de madera" />
+              <span class="review-tag">Street Food</span>
+            </div>
+            <div class="review-content">
+              <h3>Barrio Burger · Street food con personalidad</h3>
+              <div class="review-meta">
+                <span>⭐ 4.3</span>
+                <span>💰 Precio accesible</span>
+                <span>🔥 Ideal para grupos</span>
+              </div>
+              <p class="review-text">
+                Hamburguesas jugosas, papas crujientes y salsas caseras. El punto fuerte es
+                la posibilidad de personalizar tu burger con extras como cebolla crispy,
+                cheddar doble o salsa ahumada.
+              </p>
+              <p class="review-text review-extra">
+                El local es pequeño pero con mucha personalidad: murales urbanos, mesas altas
+                y buena rotación de pedidos. El servicio es rápido y el ambiente relajado.
+                Perfecto para una cena informal antes del cine o para pedir y llevar.
+              </p>
+              <button class="btn-leer-mas">Leer más</button>
+            </div>
+          </article>
+
+          <!-- CARD 3 -->
+          <article class="review-card" data-tipo="cafe">
+            <div class="review-img-wrapper">
+              <!-- IMAGEN DE CAFETERÍA / POSTRES -->
+              <img
+                class="review-img"
+                src="img/cafe-postres.jpg"
+                alt="Taza de café y porción de torta de chocolate sobre mesa de madera" />
+              <span class="review-tag">Cafetería</span>
+            </div>
+            <div class="review-content">
+              <h3>Café Aurora · Postres caseros y café de especialidad</h3>
+              <div class="review-meta">
+                <span>⭐ 4.6</span>
+                <span>☕ Café de origen</span>
+                <span>📚 Ideal para estudiar</span>
+              </div>
+              <p class="review-text">
+                Un espacio tranquilo con mesas amplias y enchufes disponibles. El
+                <strong>capuccino</strong> tiene buena textura de leche y los postres caseros,
+                como la torta de zanahoria, completan la experiencia.
+              </p>
+              <p class="review-text review-extra">
+                El ruido ambiente es bajo, lo que lo hace ideal para leer, trabajar en
+                laptop o reunirse en grupos pequeños. Ofrecen alternativas veganas en
+                repostería y opciones con leche vegetal para el café.
+              </p>
+              <button class="btn-leer-mas">Leer más</button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- SIDEBAR -->
+      <aside>
+        <section id="sobre-mi" class="card">
+          <h3>Sobre el autor del blog</h3>
+          <p>
+            Este proyecto universitario analiza la experiencia en restaurantes desde
+            cuatro ejes principales: sabor, servicio, ambiente y relación calidad-precio.
+          </p>
+          <ul class="highlights">
+            <li>Pruebas de menú real para cada reseña.</li>
+            <li>Observación del servicio y tiempos de espera.</li>
+            <li>Evaluación honesta desde el punto de vista del cliente.</li>
+          </ul>
+        </section>
+
+        <section id="contacto" class="card">
+          <h3>Datos simbólicos del restaurante</h3>
+          <div class="contact">
+            <span class="contact-tag">Ejemplo para el trabajo</span>
+            <p><strong>Nombre:</strong> La Terraza Urbana</p>
+            <p><strong>Ubicación:</strong> Zona céntrica, ciudad ficticia</p>
+            <p><strong>Horario:</strong> Lun - Sáb · 19:00 a 23:30</p>
+            <p><strong>Contacto:</strong> reservas@laterrazaurbana.com</p>
+          </div>
+        </section>
+      </aside>
+    </main>
+
+    <footer>
+      <span>FoodNight · Blog de reseñas · Proyecto universitario</span>
+      <span>Diseño en modo oscuro · HTML + CSS + JS sin frameworks</span>
+    </footer>
+  </div>
+
+  <button id="btn-subir" aria-label="Volver arriba">↑</button>
+
+  <!-- Enlace al JS -->
+  <script src="script.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>FoodNight - Reseñas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page">
+    <header>
+      <nav class="nav">
+        <div class="logo">
+          <div class="logo-icon">FN</div>
+          <div class="logo-text">
+            <span class="logo-title">FoodNight</span>
+            <span class="logo-subtitle">Blog de reseñas gastronómicas</span>
+          </div>
+        </div>
+        <div class="nav-links">
+          <a href="index.html">Inicio</a>
+          <a href="resenas.html">Reseñas</a>
+          <a href="sobremi.html">Sobre mí</a>
+          <a href="contacto.html">Contacto</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- SECCIÓN PRINCIPAL: RESEÑAS -->
+      <section id="resenas">
+        <h2 class="section-title">Últimas reseñas</h2>
+        <p class="section-subtitle">
+          Aquí recopilo mis visitas a diferentes lugares: qué tal estuvo la comida, el ambiente
+          y si realmente vale la pena ir.
+        </p>
+
+        <div class="filters">
+          <button class="filter-btn active" data-filter="todos">Todos</button>
+          <button class="filter-btn" data-filter="gourmet">Gourmet</button>
+          <button class="filter-btn" data-filter="rapida">Comida rápida</button>
+          <button class="filter-btn" data-filter="cafe">Cafetería</button>
+        </div>
+
+        <div class="reviews-list">
+          <!-- CARD 1 -->
+          <article class="review-card" data-tipo="gourmet">
+            <div class="review-img-wrapper">
+              <img
+                class="review-img"
+                src="img/terraza-plato-firma.jpg"
+                alt="Plato de pasta artesanal con salsa de tomate y albahaca" />
+              <span class="review-tag">Gourmet · Cenas</span>
+            </div>
+            <div class="review-content">
+              <h3>La Terraza Urbana · Cena de fusión</h3>
+              <div class="review-meta">
+                <span>⭐ 4.8</span>
+                <span>💰 Precio medio-alto</span>
+                <span>🍝 Plato estrella: ravioles de ricotta</span>
+              </div>
+              <p class="review-text">
+                La Terraza Urbana mezcla cocina de fusión con un ambiente perfecto para cenar
+                tranquilo. La pasta se siente casera y las salsas tienen ese toque de restaurante
+                “serio”, pero sin volverse exageradamente formal.
+              </p>
+              <p class="review-text review-extra">
+                El servicio fue atento pero relajado, ideal para ir en pareja o con amigos. La música
+                de fondo no tapa las conversaciones y la iluminación ayuda a que las fotos de la comida
+                salgan increíbles. Recomendado reservar si vas viernes o sábado por la noche.
+              </p>
+              <button class="btn-leer-mas">Leer más</button>
+            </div>
+          </article>
+
+          <!-- CARD 2 -->
+          <article class="review-card" data-tipo="rapida">
+            <div class="review-img-wrapper">
+              <img
+                class="review-img"
+                src="img/burger-street.jpg"
+                alt="Hamburguesa gourmet con papas fritas en tabla de madera" />
+              <span class="review-tag">Street Food</span>
+            </div>
+            <div class="review-content">
+              <h3>Barrio Burger · Hamburguesas con actitud</h3>
+              <div class="review-meta">
+                <span>⭐ 4.3</span>
+                <span>💰 Precio accesible</span>
+                <span>🔥 Ideal para ir con amigos</span>
+              </div>
+              <p class="review-text">
+                Barrio Burger es de esos lugares donde vas directo a lo que quieres: una burger
+                bien armada, papas crocantes y porciones que realmente llenan. El menú es corto,
+                pero cada opción está pensada.
+              </p>
+              <p class="review-text review-extra">
+                El local es pequeño, con estética urbana y música más alta, así que no es el mejor
+                lugar para una cita tranquila, pero sí perfecto para comer rico antes de una salida.
+                Las salsas caseras son un punto fuerte: probé la ahumada y la volvería a pedir.
+              </p>
+              <button class="btn-leer-mas">Leer más</button>
+            </div>
+          </article>
+
+          <!-- CARD 3 -->
+          <article class="review-card" data-tipo="cafe">
+            <div class="review-img-wrapper">
+              <img
+                class="review-img"
+                src="img/cafe-postres.jpg"
+                alt="Taza de café y porción de torta de chocolate sobre mesa de madera" />
+              <span class="review-tag">Cafetería</span>
+            </div>
+            <div class="review-content">
+              <h3>Café Aurora · Espacio para estudiar y desconectar</h3>
+              <div class="review-meta">
+                <span>⭐ 4.6</span>
+                <span>☕ Café de origen</span>
+                <span>📚 Apto para estudiantes</span>
+              </div>
+              <p class="review-text">
+                Café Aurora se siente como un pequeño refugio en medio de la ciudad. Mesas amplias,
+                enchufes disponibles y buena iluminación lo vuelven un lugar cómodo para llevar la
+                laptop o un libro.
+              </p>
+              <p class="review-text review-extra">
+                El capuccino tiene buena textura de leche y los postres caseros, como la torta de
+                zanahoria y el brownie, son el combo perfecto para acompañar una tarde de estudio.
+                Suelen mantener un ambiente silencioso, lo que se agradece bastante.
+              </p>
+              <button class="btn-leer-mas">Leer más</button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ASIDE (opcional) -->
+      <aside>
+        <section class="card">
+          <h3>Cómo califico los lugares</h3>
+          <p>
+            Cada reseña se basa en mi experiencia como cliente, considerando cuatro aspectos:
+          </p>
+          <ul class="highlights">
+            <li>Sabor y presentación de los platos.</li>
+            <li>Atención y tiempos de servicio.</li>
+            <li>Ambiente, música, iluminación y comodidad.</li>
+            <li>Relación entre lo que pagas y lo que recibes.</li>
+          </ul>
+        </section>
+      </aside>
+    </main>
+
+    <footer>
+      <span>FoodNight · Reseñas de restaurantes</span>
+      <span>Proyecto universitario · Modo oscuro</span>
+    </footer>
+  </div>
+
+  <button id="btn-subir" aria-label="Volver arriba">↑</button>
+  <script src="script.js" defer></script>
+</body>
+</html>

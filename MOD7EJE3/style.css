@@ -1,0 +1,102 @@
+/* Reset básico: elimina márgenes por defecto del navegador */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f0f2f5;
+    font-family: sans-serif;
+    padding: 20px;
+}
+
+/* =======================================================
+   EL CONTENEDOR MAESTRO (GRID)
+   ======================================================= */
+.gallery-grid {
+    display: grid;
+    
+    /* 1. COLUMNAS AUTOMÁTICAS (Responsivo real)
+       - repeat(auto-fill, ...): "Crea tantas columnas como quepan en la pantalla".
+       - minmax(240px, 1fr): "Cada columna debe medir AL MENOS 240px. 
+         Si sobra espacio, estírate (1fr) para llenarlo".
+       Esto evita que tengas que usar @media queries para móviles. */
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+
+    /* 2. FILAS PEQUEÑAS (La clave del Masonry)
+       Creamos filas invisibles de 10px de alto. Esto nos da "resolución"
+       para decidir qué tan alta es cada tarjeta con precisión. */
+    grid-auto-rows: 10px;
+
+    /* 3. ALGORITMO INTELIGENTE (Dense)
+       Esto es lo que pedía la misión. Sin esto, si hay un hueco pequeño 
+       y sigue una tarjeta grande, queda un espacio vacío.
+       'dense' le dice al navegador: "Busca tarjetas pequeñas que vengan después 
+       y rellena los huecos vacíos de arriba". */
+    grid-auto-flow: dense;
+
+    gap: 15px; /* Espacio entre tarjetas */
+}
+
+/* =======================================================
+   LAS TARJETAS (Piezas del Tetris)
+   ======================================================= */
+.card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden; /* Corta la imagen si se sale de las esquinas redondeadas */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    
+    /* Grid Spans: Por defecto, una tarjeta normal ocupa 26 filas de 10px 
+       (260px aprox de altura total + gaps) */
+    grid-row: span 26; 
+
+    /* Usamos Flexbox dentro para que la imagen ocupe lo que pueda */
+    display: flex;
+    flex-direction: column;
+}
+
+/* VARIANTE: Tarjeta Alta */
+.card-tall {
+    grid-row: span 42; /* Ocupa 42 filas (más alta) */
+}
+
+/* VARIANTE: Tarjeta Ancha */
+.card-wide {
+    grid-column: span 2; /* Ocupa 2 columnas a lo ancho */
+    grid-row: span 26;
+}
+
+/* VARIANTE: Tarjeta Grande (Alta y Ancha) */
+.card-big {
+    grid-column: span 2;
+    grid-row: span 42;
+}
+
+/* =======================================================
+   LAS IMÁGENES (Solución al problema visual)
+   ======================================================= */
+figure {
+    margin: 0;
+    /* 'flex-grow: 1' obliga a la imagen a ocupar todo el espacio 
+       disponible en la tarjeta, empujando el texto hacia abajo */
+    flex-grow: 1; 
+    height: 100%; /* Asegura que tenga altura */
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    
+    /* PROPIEDAD CLAVE: object-fit
+       - 'cover': Hace que la imagen actúe como un fondo. 
+       Se recorta si es necesario, pero NUNCA se deforma/estira.
+       Sin esto, tus imágenes se verían aplastadas. */
+    object-fit: cover;
+    display: block; /* Elimina un pequeño espacio blanco fantasma debajo de las img */
+}
+
+.card-content {
+    padding: 15px;
+}

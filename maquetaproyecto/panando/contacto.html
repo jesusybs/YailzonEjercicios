@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>FoodNight - Contacto</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page">
+    <header>
+      <nav class="nav">
+        <div class="logo">
+          <div class="logo-icon">FN</div>
+          <div class="logo-text">
+            <span class="logo-title">FoodNight</span>
+            <span class="logo-subtitle">Blog de reseñas gastronómicas</span>
+          </div>
+        </div>
+        <div class="nav-links">
+          <a href="index.html">Inicio</a>
+          <a href="resenas.html">Reseñas</a>
+          <a href="sobremi.html">Sobre mí</a>
+          <a href="contacto.html">Contacto</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- SECCIÓN PRINCIPAL: CONTACTO -->
+      <section id="contacto" class="card">
+        <h2 class="section-title">Contacto</h2>
+        <p style="font-size:0.9rem;">
+          Este formulario es solo de demostración para el proyecto universitario. No envía datos reales
+          ni está conectado a ningún servicio externo.
+        </p>
+
+        <form class="contact-form" action="#" method="post">
+          <div class="form-group">
+            <label for="nombre">Nombre completo</label>
+            <input id="nombre" name="nombre" type="text" placeholder="Escribe tu nombre" required />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Correo electrónico</label>
+            <input id="email" name="email" type="email" placeholder="tunombre@ejemplo.com" required />
+          </div>
+
+          <div class="form-group">
+            <label for="tipo-visita">Motivo del mensaje</label>
+            <select id="tipo-visita" name="tipo-visita">
+              <option value="comentario">Comentario sobre una reseña</option>
+              <option value="sugerencia">Sugerir un nuevo lugar</option>
+              <option value="proyecto">Consulta sobre el proyecto universitario</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="mensaje">Mensaje</label>
+            <textarea
+              id="mensaje"
+              name="mensaje"
+              rows="4"
+              placeholder="Escribe aquí tu comentario o sugerencia"></textarea>
+          </div>
+
+          <div class="form-group form-group-inline">
+            <label class="checkbox-label">
+              <input type="checkbox" name="acepto" required />
+              Confirmo que entiendo que este formulario es solo demostrativo.
+            </label>
+          </div>
+
+          <button type="submit" class="btn-primary">
+            Enviar (demostración)
+          </button>
+        </form>
+
+        <div class="contact" style="margin-top: 0.8rem;">
+          <span class="contact-tag">Datos ficticios</span>
+          <p><strong>Correo de ejemplo:</strong> contacto@blogrestaurantes.com</p>
+          <p><strong>Nota:</strong> Esta información es solo para fines académicos.</p>
+        </div>
+      </section>
+
+      <!-- ASIDE -->
+      <aside>
+        <section class="card">
+          <h3>Información del proyecto</h3>
+          <p>
+            Esta página forma parte de un trabajo práctico de diseño y programación web. El formulario
+            simula un panel de contacto real, pero no guarda ni envía los datos.
+          </p>
+        </section>
+      </aside>
+    </main>
+
+    <footer>
+      <span>FoodNight · Sección de contacto</span>
+      <span>Formulario demostrativo · Sin envío real</span>
+    </footer>
+  </div>
+
+  <button id="btn-subir" aria-label="Volver arriba">↑</button>
+  <script src="script.js" defer></script>
+</body>
+</html>

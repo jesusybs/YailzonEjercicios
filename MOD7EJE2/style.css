@@ -1,0 +1,165 @@
+/* =========================================
+   1. DEFINICIÓN DE VARIABLES GLOBALES (:root)
+   ========================================= */
+:root {
+    /* Colores Primitivos: Definimos la paleta base */
+    --color-white: #ffffff;
+    --color-gray-50: #f9f9f9;
+    --color-gray-100: #e0e0e0;
+    --color-gray-500: #666666;
+    --color-gray-800: #333333;
+    --color-dark-bg: #1e1e1e;
+    --color-dark-card: #2d2d2d;
+    --color-blue: #0056b3;
+
+    /* VARIABLES SEMÁNTICAS (El secreto del sistema)
+       En lugar de usar colores directos, usamos nombres que describen su función.
+       Esto permite cambiarlos fácilmente. */
+    
+    --bg-body: var(--color-gray-50);       /* Fondo de la página */
+    --bg-card: var(--color-white);         /* Fondo de la tarjeta */
+    --text-primary: var(--color-gray-800); /* Título y nombres */
+    --text-secondary: var(--color-gray-500); /* Textos secundarios */
+    --btn-border: var(--color-blue);       /* Bordes de botones */
+    --btn-text: var(--color-blue);         /* Texto de botones */
+    --shadow-color: rgba(0, 0, 0, 0.1);    /* Sombra suave */
+}
+
+/* =========================================
+   2. EL TEMA OSCURO (Sobrescritura)
+   ========================================= */
+/* Selector de atributo: Busca cuando el HTML tiene data-theme="dark" */
+[data-theme="dark"] {
+    /* Aquí REASIGNAMOS las variables semánticas. 
+       No tocamos el CSS de la tarjeta, solo cambiamos a qué color apuntan las variables. */
+    
+    --bg-body: #121212; 
+    --bg-card: var(--color-dark-card);
+    --text-primary: var(--color-white);
+    --text-secondary: #aaaaaa;
+    --shadow-color: rgba(0, 0, 0, 0.5); /* Sombra más fuerte en oscuro */
+    --btn-border: #90caf9; /* Azul más claro para mejor contraste en oscuro */
+    --btn-text: #90caf9;
+}
+
+/* =========================================
+   3. ESTILOS GENERALES (Consumiendo variables)
+   ========================================= */
+body {
+    background-color: var(--bg-body); /* Consume la variable dinámica */
+    color: var(--text-primary);
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    /* Transición suave para todo el body al cambiar de tema */
+    transition: background-color 0.3s ease, color 0.3s ease; 
+}
+
+/* Estilos de la Tarjeta */
+.card {
+    background-color: var(--bg-card); /* ¡Aquí está la magia! Cambia solo según el tema */
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px var(--shadow-color);
+    text-align: center;
+    width: 300px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    background-color: #ccc;
+}
+
+h2 { margin: 0; font-size: 1.5rem; }
+
+.role {
+    color: var(--text-secondary); /* Texto gris en claro, gris claro en oscuro */
+    font-weight: 600;
+    margin: 5px 0;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+}
+
+.desc {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+}
+
+/* Botones */
+.buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.btn {
+    padding: 8px 20px;
+    border: 2px solid var(--btn-border);
+    background: transparent;
+    color: var(--btn-text);
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.btn:hover {
+    background-color: var(--btn-border);
+    color: var(--bg-card); /* Invertimos colores al hacer hover */
+}
+
+/* =========================================
+   4. ESTILO DEL INTERRUPTOR (Toggle)
+   ========================================= */
+.theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.theme-switch {
+    display: inline-block;
+    height: 34px;
+    position: relative;
+    width: 60px;
+    margin-right: 10px;
+}
+
+.theme-switch input { display: none; }
+
+.slider {
+    background-color: #ccc;
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    background-color: #fff;
+    bottom: 4px;
+    content: "";
+    height: 26px;
+    left: 4px;
+    position: absolute;
+    transition: .4s;
+    width: 26px;
+    border-radius: 50%;
+}
+
+input:checked + .slider { background-color: #0056b3; }
+input:checked + .slider:before { transform: translateX(26px); }
