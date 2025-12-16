@@ -1,3 +1,16 @@
+/* =========================================
+   PALETA DE FUEGO (Variables para consistencia)
+   ========================================= */
+:root {
+    --color-primary-fire: #FF4500;       /* Rojo-Naranja Brillante (Llama) */
+    --color-secondary-fire: #FF8C00;     /* Naranja Oscuro (Acento) */
+    --color-background-dark: #1A0000;    /* Negro Carbón/Fondo Profundo */
+    --color-card-bg: #2b1818;            /* Fondo de tarjeta de Brasa */
+    --color-text-highlight: #FFD700;     /* Oro/Brillo para títulos */
+    --color-text-subtle: #d3d3d3;        /* Gris claro para subtítulos */
+    --shadow-fire: rgba(255, 69, 0, 0.2); /* Sombra de resplandor suave */
+}
+
 /* Reset básico: elimina márgenes por defecto del navegador */
 * {
     box-sizing: border-box;
@@ -6,9 +19,12 @@
 }
 
 body {
-    background-color: #f0f2f5;
-    font-family: sans-serif;
+    /* Fondo dramático: Negro Carbón */
+    background-color: var(--color-background-dark); 
+    color: var(--color-text-subtle);
+    font-family: 'Segoe UI', sans-serif;
     padding: 20px;
+    min-height: 100vh;
 }
 
 /* =======================================================
@@ -17,54 +33,52 @@ body {
 .gallery-grid {
     display: grid;
     
-    /* 1. COLUMNAS AUTOMÁTICAS (Responsivo real)
-       - repeat(auto-fill, ...): "Crea tantas columnas como quepan en la pantalla".
-       - minmax(240px, 1fr): "Cada columna debe medir AL MENOS 240px. 
-         Si sobra espacio, estírate (1fr) para llenarlo".
-       Esto evita que tengas que usar @media queries para móviles. */
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
 
-    /* 2. FILAS PEQUEÑAS (La clave del Masonry)
-       Creamos filas invisibles de 10px de alto. Esto nos da "resolución"
-       para decidir qué tan alta es cada tarjeta con precisión. */
+    /* Mantenemos la clave del Masonry */
     grid-auto-rows: 10px;
-
-    /* 3. ALGORITMO INTELIGENTE (Dense)
-       Esto es lo que pedía la misión. Sin esto, si hay un hueco pequeño 
-       y sigue una tarjeta grande, queda un espacio vacío.
-       'dense' le dice al navegador: "Busca tarjetas pequeñas que vengan después 
-       y rellena los huecos vacíos de arriba". */
     grid-auto-flow: dense;
 
     gap: 15px; /* Espacio entre tarjetas */
+    max-width: 1400px; /* Centramos y damos un límite visual */
+    margin: 0 auto;
 }
 
 /* =======================================================
-   LAS TARJETAS (Piezas del Tetris)
+   LAS TARJETAS (Piezas del Tetris - Brasa)
    ======================================================= */
 .card {
-    background: white;
+    /* Fondo de tarjeta de brasa oscura */
+    background: var(--color-card-bg);
     border-radius: 12px;
-    overflow: hidden; /* Corta la imagen si se sale de las esquinas redondeadas */
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    overflow: hidden;
+    /* Sombra con resplandor sutil de fuego */
+    box-shadow: 0 4px 10px var(--shadow-fire); 
     
-    /* Grid Spans: Por defecto, una tarjeta normal ocupa 26 filas de 10px 
-       (260px aprox de altura total + gaps) */
+    /* Efecto de transición para el hover */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
     grid-row: span 26; 
 
-    /* Usamos Flexbox dentro para que la imagen ocupe lo que pueda */
     display: flex;
     flex-direction: column;
 }
 
+/* Hover: La tarjeta se levanta y el resplandor se intensifica */
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(255, 69, 0, 0.4);
+}
+
+
 /* VARIANTE: Tarjeta Alta */
 .card-tall {
-    grid-row: span 42; /* Ocupa 42 filas (más alta) */
+    grid-row: span 42; 
 }
 
 /* VARIANTE: Tarjeta Ancha */
 .card-wide {
-    grid-column: span 2; /* Ocupa 2 columnas a lo ancho */
+    grid-column: span 2; 
     grid-row: span 26;
 }
 
@@ -75,28 +89,45 @@ body {
 }
 
 /* =======================================================
-   LAS IMÁGENES (Solución al problema visual)
+   LAS IMÁGENES (Filtro cálido)
    ======================================================= */
 figure {
     margin: 0;
-    /* 'flex-grow: 1' obliga a la imagen a ocupar todo el espacio 
-       disponible en la tarjeta, empujando el texto hacia abajo */
     flex-grow: 1; 
-    height: 100%; /* Asegura que tenga altura */
+    height: 100%; 
 }
 
 img {
     width: 100%;
     height: 100%;
     
-    /* PROPIEDAD CLAVE: object-fit
-       - 'cover': Hace que la imagen actúe como un fondo. 
-       Se recorta si es necesario, pero NUNCA se deforma/estira.
-       Sin esto, tus imágenes se verían aplastadas. */
     object-fit: cover;
-    display: block; /* Elimina un pequeño espacio blanco fantasma debajo de las img */
+    display: block; 
+    
+    /* Aplicamos un filtro que enfatiza los tonos cálidos y el contraste */
+    filter: brightness(0.9) saturate(1.2) contrast(1.1);
+    transition: filter 0.4s ease;
+}
+
+/* Hover: La imagen se satura y se vuelve más brillante */
+.card:hover img {
+    filter: brightness(1.1) saturate(1.4) contrast(1.1);
 }
 
 .card-content {
     padding: 15px;
+}
+
+/* Títulos y Subtítulos */
+.card-content h3 {
+    /* Títulos en Naranja Fuego */
+    color: var(--color-primary-fire); 
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+}
+
+.card-content p {
+    /* Subtítulos en gris claro */
+    color: var(--color-text-subtle);
+    font-size: 0.9rem;
 }

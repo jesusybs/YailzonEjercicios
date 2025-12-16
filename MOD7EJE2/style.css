@@ -2,44 +2,39 @@
    1. DEFINICIÓN DE VARIABLES GLOBALES (:root)
    ========================================= */
 :root {
-    /* Colores Primitivos: Definimos la paleta base */
-    --color-white: #ffffff;
-    --color-gray-50: #f9f9f9;
-    --color-gray-100: #e0e0e0;
-    --color-gray-500: #666666;
-    --color-gray-800: #333333;
-    --color-dark-bg: #1e1e1e;
-    --color-dark-card: #2d2d2d;
-    --color-blue: #0056b3;
+    /* Paleta de Fuego (Primitivas para referencia) */
+    --color-primary-fire: #FF4500;   /* Rojo-Naranja Brillante (Llama) */
+    --color-secondary-fire: #FF8C00; /* Naranja Oscuro (Acento) */
+    --color-dark-fire: #4D0000;      /* Rojo Profundo */
+    --color-background-dark: #1A1A1A;/* Negro Carbón */
+    --color-text-highlight: #FFD700; /* Oro/Brillo */
+    --color-error: #8B0000;          /* Rojo Oscuro Intenso */
 
-    /* VARIABLES SEMÁNTICAS (El secreto del sistema)
-       En lugar de usar colores directos, usamos nombres que describen su función.
-       Esto permite cambiarlos fácilmente. */
-    
-    --bg-body: var(--color-gray-50);       /* Fondo de la página */
-    --bg-card: var(--color-white);         /* Fondo de la tarjeta */
-    --text-primary: var(--color-gray-800); /* Título y nombres */
-    --text-secondary: var(--color-gray-500); /* Textos secundarios */
-    --btn-border: var(--color-blue);       /* Bordes de botones */
-    --btn-text: var(--color-blue);         /* Texto de botones */
+    /* VARIABLES SEMÁNTICAS - MODO CLARO (Default) */
+    --bg-body: #f8f8f8;                    /* Fondo muy claro */
+    --bg-card: var(--color-white);         /* Fondo de la tarjeta en blanco */
+    --text-primary: var(--color-gray-800); /* Título y nombres en gris oscuro */
+    --text-secondary: var(--color-gray-500); /* Textos secundarios en gris */
+    --btn-border: var(--color-secondary-fire); /* Bordes de botones Naranja Oscuro */
+    --btn-text: var(--color-secondary-fire);   /* Texto de botones Naranja Oscuro */
     --shadow-color: rgba(0, 0, 0, 0.1);    /* Sombra suave */
+    --toggle-active-bg: var(--color-primary-fire); /* Fondo del switch ON */
 }
 
 /* =========================================
-   2. EL TEMA OSCURO (Sobrescritura)
+   2. EL TEMA OSCURO (Sobrescritura - Fuego)
    ========================================= */
-/* Selector de atributo: Busca cuando el HTML tiene data-theme="dark" */
 [data-theme="dark"] {
-    /* Aquí REASIGNAMOS las variables semánticas. 
-       No tocamos el CSS de la tarjeta, solo cambiamos a qué color apuntan las variables. */
+    /* REASIGNACIÓN DE VARIABLES SEMÁNTICAS AL ESTILO FUEGO */
     
-    --bg-body: #121212; 
-    --bg-card: var(--color-dark-card);
-    --text-primary: var(--color-white);
-    --text-secondary: #aaaaaa;
-    --shadow-color: rgba(0, 0, 0, 0.5); /* Sombra más fuerte en oscuro */
-    --btn-border: #90caf9; /* Azul más claro para mejor contraste en oscuro */
-    --btn-text: #90caf9;
+    --bg-body: var(--color-background-dark); /* Negro Carbón */
+    --bg-card: #261616; /* Fondo de tarjeta de brasa sutil */
+    --text-primary: var(--color-text-light); /* Texto principal en tono cálido */
+    --text-secondary: #aaaaaa; /* Gris para textos secundarios */
+    --shadow-color: rgba(255, 69, 0, 0.25); /* Sombra de resplandor naranja */
+    --btn-border: var(--color-primary-fire); /* Bordes de botones Rojo-Naranja */
+    --btn-text: var(--color-text-highlight); /* Texto de botones en Oro */
+    --toggle-active-bg: var(--color-success); /* Switch ON en Oro para contraste máximo */
 }
 
 /* =========================================
@@ -68,17 +63,35 @@ body {
     text-align: center;
     width: 300px;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    /* Borde sutil que se destaca en modo oscuro */
+    border: 1px solid rgba(255, 140, 0, 0.1); 
+}
+
+.avatar-container {
+    /* Añadimos un pequeño borde de resplandor alrededor del avatar */
+    display: inline-block;
+    padding: 3px;
+    border-radius: 50%;
+    /* El borde de fuego es sutil en claro, más visible en oscuro */
+    box-shadow: 0 0 0 2px var(--btn-text);
+    margin-bottom: 1rem;
+    transition: box-shadow 0.3s ease;
 }
 
 .avatar {
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    margin-bottom: 1rem;
     background-color: #ccc;
+    /* Borde interno blanco para separar del resplandor */
+    border: 3px solid var(--bg-card); 
 }
 
-h2 { margin: 0; font-size: 1.5rem; }
+h2 { 
+    margin: 0; 
+    font-size: 1.5rem; 
+    color: var(--text-primary); /* Aseguramos que consuma el primario */
+}
 
 .role {
     color: var(--text-secondary); /* Texto gris en claro, gris claro en oscuro */
@@ -114,8 +127,11 @@ h2 { margin: 0; font-size: 1.5rem; }
 }
 
 .btn:hover {
+    /* Hover con color de borde de fuego */
     background-color: var(--btn-border);
     color: var(--bg-card); /* Invertimos colores al hacer hover */
+    /* Resplandor al hacer hover en modo oscuro */
+    box-shadow: 0 0 10px rgba(255, 69, 0, 0.5); 
 }
 
 /* =========================================
@@ -138,19 +154,19 @@ h2 { margin: 0; font-size: 1.5rem; }
 .theme-switch input { display: none; }
 
 .slider {
-    background-color: #ccc;
+    /* Color de interruptor apagado: Gris carbón */
+    background-color: #777; 
     bottom: 0;
     cursor: pointer;
     left: 0;
     position: absolute;
     right: 0;
-    top: 0;
     transition: .4s;
     border-radius: 34px;
 }
 
 .slider:before {
-    background-color: #fff;
+    background-color: #eb7d3d;
     bottom: 4px;
     content: "";
     height: 26px;
@@ -161,5 +177,13 @@ h2 { margin: 0; font-size: 1.5rem; }
     border-radius: 50%;
 }
 
-input:checked + .slider { background-color: #0056b3; }
-input:checked + .slider:before { transform: translateX(26px); }
+/* Interruptor ENCIENDE (Modo Oscuro Activo) */
+input:checked + .slider { 
+    /* Fondo del switch ON: Rojo-Naranja Brillante */
+    background-color: var(--color-primary-fire); 
+}
+input:checked + .slider:before { 
+    transform: translateX(26px); 
+    /* El círculo de luz en el switch en modo oscuro es Oro */
+    background-color: var(--color-text-highlight); 
+}
