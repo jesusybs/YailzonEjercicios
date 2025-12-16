@@ -1,0 +1,93 @@
+/* =====================================
+   DEFINICIÓN DE COLORES FUEGO OSCURO
+   ===================================== */
+
+/* Definimos las variables de color para usar el tema Fuego */
+:root {
+    --color-fire-primary: #ff4500; /* Rojo Anaranjado */
+    --color-fire-secondary: #ff8c00; /* Naranja Oscuro */
+    --color-fire-glow: #ffc400; /* Amarillo Fuego para iconos */
+    --color-dark-bg: #212121; /* Fondo oscuro consistente */
+}
+
+/* 1. SOBREESCRIBIR CLASES PRIMARIAS DE BOOTSTRAP (Fuego Primario) */
+
+.bg-primary,
+.badge.bg-primary,
+.btn-primary {
+    background-color: var(--color-fire-primary) !important;
+    border-color: var(--color-fire-primary) !important;
+}
+
+.text-primary {
+    color: var(--color-fire-primary) !important;
+}
+
+.btn-primary:hover {
+    background-color: var(--color-fire-secondary) !important;
+    border-color: var(--color-fire-secondary) !important;
+}
+
+.btn-outline-primary {
+    color: var(--color-fire-primary) !important;
+    border-color: var(--color-fire-primary) !important;
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--color-fire-primary) !important;
+    color: #fff !important; 
+}
+
+
+/* 2. ESTILOS PERSONALIZADOS (Secciones y Tarjetas) */
+
+/* Fondo del Hero Section (Degradado de Fuego) */
+.hero-section {
+    background: linear-gradient(135deg, var(--color-fire-primary) 0%, var(--color-fire-secondary) 100%);
+    box-shadow: 0 0 15px rgba(255, 69, 0, 0.5); 
+}
+
+.min-vh-75 {
+    min-height: 75vh;
+}
+
+.card {
+    transition: transform 0.3s ease;
+    /* Borde sutil de fuego en las tarjetas */
+    border: 1px solid rgba(255, 69, 0, 0.1); 
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    /* Sombra de tarjeta al hacer hover: color de Fuego primario */
+    box-shadow: 0 10px 20px rgba(255, 69, 0, 0.5), 0 0 10px rgba(255, 69, 0, 0.3);
+}
+
+/* 3. Estilos Específicos para Fondos y Texto Oscuro */
+
+/* Hacemos que la sección "Skills" y "Contact" (que usa bg-light o no tiene bg) sea oscura */
+#skills, 
+#contact,
+.bg-light {
+    background-color: var(--color-dark-bg) !important;
+    color: #fff;
+}
+#skills .card-body h5, #skills .card-body p {
+    color: #fff;
+}
+
+/* Ajustamos el color de los iconos de las habilidades para que se vean */
+#skills .card-body i.text-primary { color: var(--color-fire-glow) !important; } /* Icono UI/UX: Amarillo Fuego */
+#skills .card-body i.text-success { color: var(--color-fire-secondary) !important; } /* Icono Frontend: Naranja Oscuro */
+#skills .card-body i.text-danger { color: var(--color-fire-primary) !important; } /* Icono Backend: Rojo Fuego */
+
+/* 4. Estilos de Footer */
+
+footer a {
+    transition: opacity 0.3s;
+    color: var(--color-fire-primary) !important; /* Enlaces sociales en color de fuego */
+}
+
+footer a:hover {
+    opacity: 0.7;
+}
