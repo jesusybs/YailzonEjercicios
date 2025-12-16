@@ -1,19 +1,37 @@
+/* =====================================
+   MODO CLARO (FUEGO CONTROLADO)
+   ===================================== */
 :root {
-    --bg-color: #ffffff;
-    --text-color: #333333;
-    --card-bg: #f8f9fa;
-    --border-color: #e0e0e0;
-    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    --accent: #667eea;
+    /* Fondo: Blanco cálido con un toque de llama */
+    --bg-color: #FFF8E1; 
+    /* Texto: Rojo Oscuro (Carbón) */
+    --text-color: #4D0000; 
+    /* Fondo de Tarjeta: Beige rojizo claro */
+    --card-bg: #FBEFDD; 
+    /* Borde: Naranja sutil */
+    --border-color: #FFC0CB; 
+    /* Sombra: Sombra cálida */
+    --shadow: 0 4px 6px rgba(139, 0, 0, 0.2);
+    /* Acento: Naranja Fuego brillante */
+    --accent: #FF8C00; 
 }
 
+/* =====================================
+   MODO OSCURO (BRASA PROFUNDA)
+   ===================================== */
 body.dark-mode {
-    --bg-color: #1a1a2e;
-    --text-color: #e0e0e0;
-    --card-bg: #16213e;
-    --border-color: #0f3460;
-    --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    --accent: #764ba2;
+    /* Fondo: Rojo Profundo (Rojo Oscuro) */
+    --bg-color: #330000; 
+    /* Texto: Oro y Beige cálido */
+    --text-color: #FFE0B2; 
+    /* Fondo de Tarjeta: Negro Carbón */
+    --card-bg: #1A0000; 
+    /* Borde: Rojo Oscuro Intenso */
+    --border-color: #660000; 
+    /* Sombra: Sombra de brasa caliente */
+    --shadow: 0 4px 8px rgba(255, 69, 0, 0.4);
+    /* Acento: Rojo-Naranja Brillante (Llama) */
+    --accent: #FF4500; 
 }
 
 * {
@@ -47,7 +65,8 @@ header {
 
 h1 {
     font-size: 2.5rem;
-    color: var(--accent);
+    /* Acento de llama para el título */
+    color: var(--accent); 
 }
 
 .theme-toggle {
@@ -55,7 +74,8 @@ h1 {
     height: 60px;
     border-radius: 50%;
     border: 2px solid var(--border-color);
-    background: var(--card-bg);
+    /* Fondo que cambia con el modo */
+    background: var(--card-bg); 
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -66,7 +86,8 @@ h1 {
 }
 
 .theme-toggle:hover {
-    transform: rotate(20deg) scale(1.1);
+    /* Gira más para simular un remolino de fuego */
+    transform: rotate(40deg) scale(1.15); 
     border-color: var(--accent);
 }
 
@@ -82,7 +103,8 @@ h1 {
 
 .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    /* Sombra de hover más intensa y ardiente */
+    box-shadow: 0 8px 15px rgba(255, 69, 0, 0.4); 
 }
 
 .card h2 {
@@ -92,6 +114,8 @@ h1 {
 
 .card p {
     line-height: 1.6;
+    /* Opacidad más baja para el modo oscuro */
+    color: var(--text-color);
     margin-bottom: 1rem;
 }
 
@@ -112,12 +136,16 @@ h1 {
 
 .feature-item:hover {
     transform: translateY(-5px);
+    /* Borde de llama al pasar el ratón */
+    border: 1px solid var(--accent);
 }
 
 .emoji {
     font-size: 3rem;
     display: block;
     margin-bottom: 1rem;
+    /* Los emojis brillan */
+    filter: drop-shadow(0 0 5px var(--accent)); 
 }
 
 .feature-item h3 {
@@ -136,7 +164,8 @@ pre {
     padding: 1.5rem;
     border-radius: 8px;
     overflow-x: auto;
-    border-left: 4px solid var(--accent);
+    /* Borde izquierdo de llama */
+    border-left: 4px solid var(--accent); 
 }
 
 code {
@@ -153,13 +182,19 @@ code {
 }
 
 .stat-card {
-    background: linear-gradient(135deg, var(--accent), #764ba2);
-    color: white;
+    /* Degradado entre los dos tonos de llama */
+    background: linear-gradient(135deg, var(--accent), #FFD700); 
+    color: #1a1a1a; /* Texto oscuro sobre el brillo */
     padding: 2rem;
     border-radius: 15px;
     text-align: center;
     box-shadow: var(--shadow);
 }
+body.dark-mode .stat-card {
+    background: linear-gradient(135deg, var(--accent), #8B0000); /* Llama a Borgoña */
+    color: white;
+}
+
 
 .stat-card h3 {
     font-size: 2rem;

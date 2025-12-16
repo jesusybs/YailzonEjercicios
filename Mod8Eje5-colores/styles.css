@@ -1,12 +1,26 @@
+/* =====================================
+   ESTILO GLOBAL: Rojo Oscuro y Llama
+   ===================================== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Paleta de Fuego */
+:root {
+    --color-primary-fire: #FF4500;   /* Rojo-Naranja Brillante (Llama) */
+    --color-secondary-fire: #FF8C00; /* Naranja Oscuro (Brasa Viva) */
+    --color-dark-fire: #4D0000;      /* Rojo Profundo (Rojo Oscuro) */
+    --color-background-dark: #1A0000;/* Negro Carbón */
+    --color-text-light: #FFE0B2;     /* Texto Cálido/Beige */
+    --color-text-dark: #1e1e1e;      /* Texto Oscuro */
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #667eea;
+    /* Fondo dramático */
+    background: linear-gradient(135deg, var(--color-background-dark) 0%, var(--color-dark-fire) 100%);
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -21,43 +35,56 @@ body {
 }
 
 .color-display {
-    background: rgba(255, 255, 255, 0.95);
+    /* Fondo oscuro/carbón, quitando el efecto cristalino para un look más sólido */
+    background: #2c2c2c; 
     padding: 3rem;
     border-radius: 20px;
     text-align: center;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(10px);
+    /* Sombra de resplandor naranja */
+    box-shadow: 0 20px 80px rgba(255, 69, 0, 0.4); 
+    /* Eliminar el filtro blur */
+    backdrop-filter: none; 
     margin-bottom: 2rem;
+    border: 2px solid var(--color-secondary-fire);
 }
 
 .title {
     font-size: 2.5rem;
-    color: #333;
+    /* Título color llama */
+    color: var(--color-secondary-fire); 
     margin-bottom: 0.5rem;
 }
 
 .subtitle {
-    color: #666;
+    /* Subtítulo en tono cálido */
+    color: #a0a0a0; 
     margin-bottom: 2rem;
 }
 
 .color-code {
     font-size: 3rem;
     font-weight: bold;
-    color: #333;
+    /* Color de código: Oro/Amarillo (el punto más caliente) */
+    color: #FFD700; 
     margin: 2rem 0;
     padding: 1.5rem;
-    background: rgba(0, 0, 0, 0.05);
+    /* Fondo de brasa oscura */
+    background: #330000; 
     border-radius: 15px;
     font-family: 'Courier New', monospace;
     letter-spacing: 3px;
     cursor: pointer;
     transition: all 0.3s ease;
+    /* Resplandor del código */
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5); 
 }
 
 .color-code:hover {
-    transform: scale(1.05);
-    background: rgba(0, 0, 0, 0.1);
+    transform: scale(1.03);
+    /* Fondo de brasa más intensa */
+    background: #400000; 
+    /* Resplandor más fuerte */
+    box-shadow: 0 0 15px rgba(255, 140, 0, 0.5); 
 }
 
 .button-group {
@@ -77,30 +104,34 @@ body {
     transition: all 0.3s ease;
 }
 
+/* Botón Generar: Llama Vigorosa */
 .btn-generate {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
+    background: linear-gradient(135deg, var(--color-primary-fire) 0%, #FFA500 100%);
+    color: var(--color-text-dark); /* Texto oscuro sobre el brillo */
     flex: 1;
 }
 
 .btn-generate:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+    transform: translateY(-4px);
+    /* Sombra de llama intensa */
+    box-shadow: 0 12px 30px rgba(255, 69, 0, 0.6); 
 }
 
 .btn-generate:active {
     transform: translateY(-1px);
 }
 
+/* Botón Copiar: Naranja Oscuro con Borde de Llama */
 .btn-copy {
-    background: white;
-    color: #667eea;
-    border: 2px solid #667eea;
+    background: #444;
+    color: var(--color-secondary-fire);
+    border: 2px solid var(--color-secondary-fire);
 }
 
 .btn-copy:hover {
-    background: #667eea;
-    color: white;
+    background: var(--color-secondary-fire);
+    color: var(--color-text-dark);
+    transform: translateY(-2px);
 }
 
 .color-info {
@@ -119,27 +150,33 @@ body {
 
 .label {
     font-size: 0.85rem;
-    color: #999;
+    /* Etiquetas en tono gris ceniza */
+    color: #999; 
     font-weight: 600;
 }
 
 .info-item span:last-child {
     font-family: 'Courier New', monospace;
-    color: #333;
+    /* Valores en tono brillante */
+    color: var(--color-text-light); 
     font-size: 0.95rem;
 }
 
+/* SECCIÓN DE HISTORIAL */
 .history-section {
-    background: rgba(255, 255, 255, 0.95);
+    /* Fondo oscuro/carbón */
+    background: #2c2c2c; 
     padding: 2rem;
     border-radius: 20px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(10px);
+    backdrop-filter: none;
     margin-bottom: 2rem;
+    border: 2px solid var(--color-dark-fire);
 }
 
 .history-section h2 {
-    color: #333;
+    /* Título de historial color llama */
+    color: var(--color-secondary-fire); 
     margin-bottom: 1.5rem;
     text-align: center;
 }
@@ -164,13 +201,15 @@ body {
     font-size: 0.75rem;
     font-family: 'Courier New', monospace;
     font-weight: bold;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
     position: relative;
+    /* Borde de brasa sutil */
+    border: 1px solid rgba(255, 69, 0, 0.3); 
 }
 
 .history-item:hover {
-    transform: scale(1.1);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transform: scale(1.15); /* Hover más dramático */
+    box-shadow: 0 5px 20px rgba(255, 69, 0, 0.6);
 }
 
 .history-item::after {
@@ -180,7 +219,8 @@ body {
     left: 50%;
     transform: translateX(-50%);
     font-size: 0.7rem;
-    color: white;
+    /* Texto en color Oro */
+    color: #FFD700; 
     opacity: 0;
     transition: opacity 0.3s;
 }
@@ -189,44 +229,53 @@ body {
     opacity: 1;
 }
 
+/* Botón Limpiar Historial: Rojo Oscuro Peligro */
 .btn-clear {
     width: 100%;
-    background: #ff6b6b;
+    background: var(--color-dark-fire);
     color: white;
 }
 
 .btn-clear:hover {
-    background: #ff5252;
+    background: #8B0000;
     transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(77, 0, 0, 0.6);
 }
 
+/* INSTRUCCIONES */
 .instructions {
-    background: rgba(255, 255, 255, 0.9);
+    /* Fondo de brasa sutil */
+    background: #2b0000; 
     padding: 1.5rem;
     border-radius: 15px;
     text-align: center;
-    color: #333;
+    /* Texto en tono claro/cálido */
+    color: var(--color-text-light); 
 }
 
 .instructions h3 {
     margin-bottom: 0.5rem;
-    color: #667eea;
+    /* Título de tip color llama */
+    color: var(--color-primary-fire); 
 }
 
 .instructions strong {
-    color: #764ba2;
+    /* Acento clave en Oro/Llama */
+    color: #FFD700; 
 }
 
+/* TOAST (Notificación de Copiado) */
 .toast {
     position: fixed;
     bottom: -100px;
     left: 50%;
     transform: translateX(-50%);
-    background: #4caf50;
-    color: white;
+    /* Éxito de copiado: Naranja Fuego */
+    background: var(--color-secondary-fire); 
+    color: var(--color-text-dark);
     padding: 1rem 2rem;
     border-radius: 50px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 5px 20px rgba(255, 140, 0, 0.5);
     transition: bottom 0.3s ease;
     z-index: 1000;
 }
