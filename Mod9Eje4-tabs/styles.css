@@ -1,0 +1,325 @@
+/* =====================================
+   ESTILO GLOBAL: Rojo Oscuro y Brasa
+   ===================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Paleta de Fuego */
+:root {
+    --color-primary-fire: #FF4500;   /* Rojo-Naranja Brillante (Llama/Acento) */
+    --color-secondary-fire: #FF8C00; /* Naranja Oscuro (Énfasis) */
+    --color-dark-fire: #4D0000;      /* Rojo Profundo (Fondo/Contraste) */
+    --color-background-dark: #1A0000;/* Negro Carbón */
+    --color-text-light: #FFE0B2;     /* Texto Cálido/Beige */
+    --color-card-bg: #2b2b2b;        /* Fondo de tarjeta oscuro */
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Fondo dramático */
+    background: linear-gradient(135deg, var(--color-background-dark) 0%, var(--color-dark-fire) 100%);
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.tabs-container {
+    /* Fondo oscuro de carbón */
+    background: var(--color-card-bg); 
+    border-radius: 20px;
+    padding: 2.5rem;
+    /* Sombra de resplandor naranja */
+    box-shadow: 0 20px 60px rgba(255, 69, 0, 0.3);
+    border: 1px solid var(--color-dark-fire);
+}
+
+h1 {
+    /* Título color llama */
+    color: var(--color-secondary-fire); 
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    text-align: center;
+    /* Subtítulo en tono cálido */
+    color: #a0a0a0; 
+    margin-bottom: 2rem;
+}
+
+/* Tab Buttons */
+.tab-buttons {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    /* Separador de brasa */
+    border-bottom: 2px solid var(--color-dark-fire); 
+    overflow-x: auto;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 1rem 1.5rem;
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #a0a0a0; /* Pestañas inactivas en gris carbón */
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+}
+
+.tab-btn:hover {
+    color: var(--color-primary-fire); /* Hover color llama */
+    background: rgba(255, 69, 0, 0.1);
+}
+
+.tab-btn.active {
+    /* Pestaña activa: Llama brillante */
+    color: #FFD700; 
+    border-bottom-color: var(--color-primary-fire);
+    background: rgba(255, 69, 0, 0.2);
+    /* Resplandor sutil para la pestaña activa */
+    box-shadow: 0 5px 10px rgba(255, 69, 0, 0.15); 
+}
+
+.tab-btn .icon {
+    font-size: 1.3rem;
+}
+
+/* Tab Content */
+.tab-contents {
+    position: relative;
+    min-height: 400px;
+}
+
+.tab-content {
+    display: none;
+    animation: fadeIn 0.4s ease;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px); /* Movimiento más pronunciado */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.tab-content h2 {
+    /* Títulos de contenido en Naranja Oscuro */
+    color: var(--color-secondary-fire); 
+    margin-bottom: 1rem;
+}
+
+.tab-content p {
+    /* Párrafos en tono cálido */
+    color: var(--color-text-light); 
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+/* Features Grid */
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.feature {
+    text-align: center;
+    padding: 1.5rem;
+    /* Fondo de brasa sutil */
+    background: #3c3c3c; 
+    border-radius: 10px;
+    transition: transform 0.3s;
+    border: 1px solid #555;
+}
+
+.feature:hover {
+    transform: translateY(-5px);
+    /* Sombra de brasa al hacer hover */
+    box-shadow: 0 8px 15px rgba(255, 140, 0, 0.4); 
+}
+
+.feature-icon {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 1rem;
+    /* Iconos brillantes */
+    color: #FFD700; 
+}
+
+.feature h3 {
+    color: var(--color-primary-fire); /* Título de característica en llama */
+    margin-bottom: 0.5rem;
+}
+
+.feature p {
+    font-size: 0.9rem;
+    margin: 0;
+    color: var(--color-text-light);
+}
+
+/* Service List */
+.service-list {
+    list-style: none;
+    margin: 2rem 0;
+}
+
+.service-list li {
+    padding: 1rem;
+    margin-bottom: 0.8rem;
+    /* Fondo de lista de brasa sutil */
+    background: #333; 
+    border-radius: 8px;
+    /* Borde de llama */
+    border-left: 4px solid var(--color-secondary-fire); 
+    font-size: 1.05rem;
+    transition: transform 0.3s;
+    color: var(--color-text-light);
+}
+
+.service-list li:hover {
+    transform: translateX(5px);
+    background: #444;
+}
+
+/* Stats Grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.stat-card {
+    /* Degradado de Llama Vigorosa */
+    background: linear-gradient(135deg, var(--color-primary-fire) 0%, var(--color-secondary-fire) 100%);
+    color: var(--color-background-dark);
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    /* Sombra de éxito ardiente */
+    box-shadow: 0 5px 15px rgba(255, 69, 0, 0.5); 
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* Contact Form */
+.contact-form {
+    max-width: 500px;
+    margin: 2rem auto;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--color-text-light);
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    /* Input oscuro */
+    background: #333; 
+    color: white;
+    border: 2px solid #555;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    /* Foco color llama */
+    border-color: var(--color-primary-fire); 
+}
+
+.cta-btn {
+    width: 100%;
+    padding: 1rem 2rem;
+    /* Botón CTA: Degradado de Llama */
+    background: linear-gradient(135deg, var(--color-primary-fire) 0%, var(--color-secondary-fire) 100%);
+    color: var(--color-background-dark);
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.cta-btn:hover {
+    transform: translateY(-4px); /* Hover más pronunciado */
+    box-shadow: 0 8px 25px rgba(255, 69, 0, 0.6);
+}
+
+.keyboard-hint {
+    text-align: center;
+    margin-top: 2rem;
+    padding: 1rem;
+    /* Fondo de brasa sutil */
+    background: var(--color-dark-fire); 
+    border-radius: 8px;
+    color: var(--color-text-light);
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .tabs-container {
+        padding: 1.5rem;
+    }
+    
+    .tab-btn {
+        font-size: 0.9rem;
+        padding: 0.8rem 1rem;
+    }
+    
+    .tab-btn .icon {
+        font-size: 1.1rem;
+    }
+    
+    .features,
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+}
