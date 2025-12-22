@@ -11,15 +11,27 @@ class Calculator {
         this.currentOperand = '0';
         this.previousOperand = '';
         this.operation = undefined;
+        this.isError = false; // Bandera para rastrear el estado de error
     }
 
     delete() {
+        // Si estamos en estado de error, DELETE debe hacer un CLEAR
+        if (this.isError || this.currentOperand === 'Syntax Error') {
+            this.clear();
+            return;
+        }
+        
         if (this.currentOperand === '0') return;
         this.currentOperand = this.currentOperand.toString().slice(0, -1);
         if (this.currentOperand === '') this.currentOperand = '0';
     }
 
     appendNumber(number) {
+        // Si hay un error, el siguiente número debe borrar el error e iniciar un nuevo cálculo
+        if (this.isError || this.currentOperand === 'Syntax Error') {
+            this.clear();
+        }
+        
         if (number === '.' && this.currentOperand.includes('.')) return;
         if (this.currentOperand === '0' && number !== '.') {
             this.currentOperand = number.toString();
@@ -29,6 +41,9 @@ class Calculator {
     }
 
     chooseOperation(operation) {
+        // No se permite una operación si hay un error
+        if (this.currentOperand === 'Syntax Error' || this.isError) return;
+        
         if (this.currentOperand === '') return;
         if (this.previousOperand !== '') {
             this.compute();
@@ -56,14 +71,33 @@ class Calculator {
                 computation = prev * current;
                 break;
             case '÷':
+                // Manejo de División por Cero
+                if (current === 0) {
+                    this.currentOperand = 'Syntax Error';
+                    this.previousOperand = '';
+                    this.operation = undefined;
+                    this.isError = true;
+                    return;
+                }
                 computation = prev / current;
                 break;
             default:
                 return;
         }
         
-        // Guardar en historial
-        const historyEntry = `${prev} ${this.operation} ${current} = ${computation}`;
+        // ===================================
+        // LÓGICA DE DETECCIÓN DE ERRORES (Infinity, -Infinity, y NaN)
+        // ===================================
+        if (computation === Infinity || computation === -Infinity || isNaN(computation)) {
+            this.currentOperand = 'Syntax Error'; // Muestra el error
+            this.previousOperand = '';
+            this.operation = undefined;
+            this.isError = true;
+            return; 
+        }
+        
+        // Guardar en historial solo si no hay error
+        const historyEntry = `${this.previousOperand} ${this.operation} ${this.currentOperand} = ${computation}`;
         this.history.unshift(historyEntry);
         if (this.history.length > 10) this.history.pop();
         localStorage.setItem('calculatorHistory', JSON.stringify(this.history));
@@ -72,9 +106,13 @@ class Calculator {
         this.currentOperand = computation;
         this.operation = undefined;
         this.previousOperand = '';
+        this.isError = false;
     }
 
     getDisplayNumber(number) {
+        // Retorna el mensaje de error directamente sin intentar formatearlo
+        if (number === 'Syntax Error') return number; 
+        
         const stringNumber = number.toString();
         const integerDigits = parseFloat(stringNumber.split('.')[0]);
         const decimalDigits = stringNumber.split('.')[1];
@@ -96,18 +134,23 @@ class Calculator {
     }
 
     updateDisplay() {
+        // Si hay un error, el display actual ya tiene 'Syntax Error' (del compute)
         this.currentOperandElement.textContent = this.getDisplayNumber(this.currentOperand);
         
-        if (this.operation != null) {
+        // El display previo solo se actualiza si NO hay un error
+        if (this.operation != null && !this.isError) {
             this.previousOperandElement.textContent =
                 `${this.getDisplayNumber(this.previousOperand)} ${this.operation}`;
         } else {
+            // Limpia el display previo si hay un error o si el cálculo acaba de terminar
             this.previousOperandElement.textContent = '';
         }
     }
 
     updateHistory() {
         const historyList = document.querySelector('.history-list');
+        if (!historyList) return; 
+        
         historyList.innerHTML = '';
         
         this.history.forEach(item => {
@@ -134,7 +177,7 @@ const calculator = new Calculator(previousOperandElement, currentOperandElement)
 document.querySelectorAll('.btn-number').forEach(button => {
     button.addEventListener('click', () => {
         calculator.appendNumber(button.textContent);
-        calculator.updateDisplay();
+        calculator.updateDisplay();b    
     });
 });
 
@@ -185,6 +228,8 @@ document.addEventListener('keydown', (e) => {
         calculator.updateDisplay();
     }
     if (e.key === 'Enter' || e.key === '=') {
+        // Prevenir el comportamiento predeterminado (ej: submit de formulario)
+        e.preventDefault(); 
         calculator.compute();
         calculator.updateDisplay();
     }
