@@ -1,0 +1,129 @@
+/* =========================================
+   1. VARIABLES DE ENERGÍA (Consistencia Boss)
+   ========================================= */
+:root {
+    --bg-abyss: #0d0000;              /* Negro Absoluto */
+    --bg-gradient: radial-gradient(circle, #2d0000 0%, #0d0000 100%);
+    --obsidian: #1a1a1a;              /* Paneles de herramientas */
+    --magma-bright: #FF4500;          /* Naranja Llama */
+    --magma-glow: #FF8C00;            /* Brasa Viva */
+    --gold-melt: #FFD700;             /* Oro (Acento de Selección) */
+    --text-ash: #FFE0B2;              /* Beige Ceniza */
+    --danger: #8B0000;                /* Rojo Sangre */
+    --shadow-fire: rgba(255, 69, 0, 0.4);
+}
+
+/* =========================================
+   2. ESTRUCTURA GLOBAL (El Taller)
+   ========================================= */
+body {
+    margin: 0;
+    display: flex;
+    height: 100vh;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background-color: var(--bg-abyss);
+    color: var(--text-ash);
+    overflow: hidden;
+}
+
+/* =========================================
+   3. SIDEBAR (Consola de Operaciones)
+   ========================================= */
+.sidebar {
+    width: 240px;
+    background-color: var(--obsidian);
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-right: 2px solid var(--danger);
+    box-shadow: 10px 0 30px rgba(0,0,0,0.7);
+}
+
+.section-title {
+    display: block;
+    font-size: 0.7rem;
+    color: var(--magma-glow); /* Títulos en brasa naranja */
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    letter-spacing: 2px;
+    font-weight: 900;
+}
+
+.control-group {
+    border-bottom: 1px solid #333;
+    padding-bottom: 20px;
+}
+
+/* =========================================
+   4. BOTONES E INTERACCIÓN (Ignición)
+   ========================================= */
+button {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 8px;
+    background: #2a2a2a;
+    border: 1px solid #444;
+    color: var(--text-ash);
+    border-radius: 6px;
+    cursor: pointer;
+    text-align: left;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+button:hover { 
+    background: #333; 
+    border-color: var(--magma-bright);
+    box-shadow: 0 0 10px var(--shadow-fire);
+}
+
+/* Herramienta Activa: Fusión de Oro y Magma */
+button.active { 
+    background: linear-gradient(135deg, var(--danger) 0%, #a50000 100%);
+    border-color: var(--gold-melt); 
+    color: white;
+    box-shadow: 0 0 15px var(--shadow-fire);
+}
+
+.tool-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+/* =========================================
+   5. ÁREA DE TRABAJO (El Horizonte de Eventos)
+   ========================================= */
+.editor-area {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--bg-gradient);
+    position: relative;
+    padding: 40px;
+}
+
+canvas {
+    background: white;
+    border-radius: 4px;
+    /* Resplandor perimetral de calor */
+    box-shadow: 0 0 60px rgba(0,0,0,0.9), 
+                0 0 10px var(--magma-glow);
+    cursor: crosshair;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* Personalización para inputs de rango y color si los hay */
+input[type="range"] {
+    accent-color: var(--magma-bright);
+}
+
+input[type="color"] {
+    background: none;
+    border: 1px solid #444;
+    border-radius: 4px;
+    cursor: pointer;
+}

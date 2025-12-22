@@ -1,0 +1,246 @@
+/* =========================================
+   1. VARIABLES DE ENERGÍA (La Forja)
+   ========================================= */
+:root {
+    --bg-main: #120000;              /* Negro Carbón */
+    --bg-gradient: linear-gradient(135deg, #1A0000 0%, #4D0000 100%);
+    --card-bg: #1e1e1e;              /* Obsidiana */
+    --fire-bright: #FF4500;          /* Naranja Llama */
+    --fire-glow: #FF8C00;            /* Naranja Brasa */
+    --gold-melt: #FFD700;            /* Oro Fundido */
+    --text-warm: #FFE0B2;            /* Beige Cálido */
+    --danger: #8B0000;               /* Rojo Sangre */
+    --shadow-glow: rgba(255, 69, 0, 0.3);
+}
+
+/* =========================================
+   2. RESET Y CUERPO (Ambiente Térmico)
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: var(--bg-gradient);
+    min-height: 100vh;
+    padding: 2rem 1rem;
+    color: var(--text-warm);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    max-width: 600px;
+    width: 100%;
+}
+
+/* =========================================
+   3. TARJETA (Escudo de Obsidiana)
+   ========================================= */
+.generator-card {
+    background: var(--card-bg);
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6), 
+                0 0 20px var(--shadow-glow);
+    border: 1px solid var(--danger);
+}
+
+h1 {
+    color: var(--gold-melt);
+    text-align: center;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+}
+
+.subtitle {
+    text-align: center;
+    color: var(--fire-bright);
+    margin-bottom: 2rem;
+    font-weight: 500;
+}
+
+/* =========================================
+   4. DISPLAY (El Núcleo de Energía)
+   ========================================= */
+.password-display {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+#passwordOutput {
+    flex: 1;
+    padding: 1rem;
+    font-size: 1.2rem;
+    font-family: 'Courier New', monospace;
+    border: 2px solid var(--danger);
+    border-radius: 10px;
+    background: #111; /* Fondo oscuro terminal */
+    color: #fff;
+    text-align: center;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+}
+
+.btn-copy {
+    padding: 1rem 1.5rem;
+    background: var(--fire-bright);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.btn-copy:hover {
+    background: var(--fire-glow);
+    transform: scale(1.05);
+    box-shadow: 0 0 15px var(--fire-bright);
+}
+
+/* =========================================
+   5. FORTALEZA (Niveles de Calor)
+   ========================================= */
+.strength-indicator {
+    height: 10px;
+    background: #333;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+}
+
+.strength-bar {
+    height: 100%;
+    width: 0%;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 0 10px rgba(255, 69, 0, 0.5);
+}
+
+/* Estos colores se inyectarían por JS según la fuerza */
+.strength-bar.weak { background: #ff3131; }
+.strength-bar.medium { background: var(--fire-bright); }
+.strength-bar.strong { background: var(--gold-melt); }
+
+.strength-text {
+    text-align: center;
+    color: var(--fire-glow);
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+}
+
+/* =========================================
+   6. CONTROLES (Consola de Mando)
+   ========================================= */
+.form-group label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.8rem;
+    color: var(--text-warm);
+    font-weight: 600;
+}
+
+#lengthValue {
+    color: var(--gold-melt);
+    font-size: 1.3rem;
+    text-shadow: 0 0 5px var(--fire-glow);
+}
+
+input[type="range"] {
+    width: 100%;
+    accent-color: var(--fire-bright);
+    cursor: pointer;
+}
+
+.options-group h3 {
+    color: var(--gold-melt);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    padding: 0.8rem;
+    margin-bottom: 0.5rem;
+    background: #252525;
+    border-radius: 8px;
+    border: 1px solid #333;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.checkbox-label:hover {
+    background: #333;
+    border-color: var(--fire-bright);
+}
+
+.checkbox-label input {
+    accent-color: var(--fire-bright);
+    margin-right: 1rem;
+}
+
+/* =========================================
+   7. BOTÓN E HISTORIAL (Explosión)
+   ========================================= */
+.btn-generate {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, var(--fire-bright) 0%, var(--danger) 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 5px 15px rgba(139, 0, 0, 0.4);
+}
+
+.btn-generate:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px var(--shadow-glow);
+    filter: brightness(1.1);
+}
+
+.history-item {
+    background: #1a1a1a;
+    border: 1px solid #333;
+    border-left: 3px solid var(--fire-subtle);
+}
+
+.btn-clear {
+    color: var(--fire-bright);
+    border: 2px solid var(--fire-bright);
+}
+
+.btn-clear:hover {
+    background: var(--fire-bright);
+}
+
+/* =========================================
+   8. TIPS Y EXTRAS (Brasas)
+   ========================================= */
+.tips {
+    background: rgba(255, 69, 0, 0.05);
+    border-left: 4px solid var(--fire-bright);
+}
+
+.tips h3 { color: var(--fire-bright); }
+.tips li { color: var(--text-warm); opacity: 0.8; }
+
+.toast {
+    background: var(--fire-bright);
+    font-weight: 800;
+    text-transform: uppercase;
+}

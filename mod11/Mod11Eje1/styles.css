@@ -1,0 +1,223 @@
+/* =========================================
+   1. VARIABLES DE ENERGÍA (La Forja de APIs)
+   ========================================= */
+:root {
+    --bg-abyss: #120000;              /* Negro Carbón */
+    --bg-gradient: linear-gradient(135deg, #1A0000 0%, #4D0000 100%);
+    --obsidian: #1e1e1e;              /* Fondo de Tarjeta */
+    --magma-bright: #FF4500;          /* Rojo-Naranja (Llama) */
+    --magma-glow: #FF8C00;            /* Naranja Brasa */
+    --gold-melt: #FFD700;             /* Oro (Punto de Fusión) */
+    --text-ash: #FFE0B2;              /* Beige Cálido */
+    --danger: #8B0000;                /* Rojo Sangre */
+    --shadow-fire: rgba(255, 69, 0, 0.3);
+}
+
+/* =========================================
+   2. RESET Y CUERPO (Ambiente Térmico)
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: var(--bg-gradient);
+    color: var(--text-ash);
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    color: white;
+    margin-bottom: 3rem;
+}
+
+header h1 {
+    color: var(--gold-melt);
+    font-size: 2.8rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+}
+
+header p {
+    color: var(--magma-glow);
+    font-weight: 600;
+}
+
+/* =========================================
+   3. GRID Y TARJETAS (Módulos de Energía)
+   ========================================= */
+.apis-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.api-card {
+    background: var(--obsidian);
+    padding: 2.5rem;
+    border-radius: 20px;
+    border: 1px solid var(--danger);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 
+                0 0 15px var(--shadow-fire);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+.api-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--magma-bright);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 
+                0 0 25px var(--magma-bright);
+}
+
+.api-card h2 {
+    color: var(--gold-melt);
+    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+    border-bottom: 2px solid var(--danger);
+    padding-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+/* =========================================
+   4. BOTONES E INPUTS (Ignición)
+   ========================================= */
+button {
+    background: linear-gradient(135deg, var(--magma-bright) 0%, var(--danger) 100%);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+    transition: all 0.3s;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+button:hover:not(:disabled) {
+    transform: translateY(-3px) scale(1.02);
+    filter: brightness(1.2);
+    box-shadow: 0 8px 20px var(--shadow-fire);
+}
+
+button:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    filter: grayscale(1);
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 0.9rem;
+    background: #2b2b2b;
+    border: 2px solid #3d0000;
+    border-radius: 10px;
+    color: #fff;
+    margin-bottom: 1.5rem;
+    transition: all 0.3s;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: var(--magma-bright);
+    box-shadow: 0 0 12px var(--shadow-fire);
+}
+
+/* =========================================
+   5. RESULTADOS Y ESPECIALES (Brasas)
+   ========================================= */
+.result {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    min-height: 50px;
+    color: var(--magma-glow);
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    border-left: 4px solid var(--gold-melt);
+    word-break: break-all;
+}
+
+#myCanvas {
+    width: 100%;
+    background: #111;
+    border: 2px solid #333;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+}
+
+.canvas-card {
+    grid-column: span 2;
+}
+
+/* Zonas de Arrastre */
+.zone {
+    min-height: 200px;
+    padding: 1rem;
+    border: 2px dashed var(--danger);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    transition: all 0.3s;
+}
+
+.zone.dragover {
+    border-color: var(--magma-bright);
+    background: rgba(255, 69, 0, 0.1);
+    box-shadow: inset 0 0 20px var(--shadow-fire);
+}
+
+.draggable {
+    background: linear-gradient(135deg, var(--magma-bright) 0%, var(--danger) 100%);
+    color: white;
+    padding: 1.2rem;
+    margin-bottom: 0.8rem;
+    border-radius: 10px;
+    cursor: grab;
+    font-weight: bold;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    transition: transform 0.2s;
+}
+
+.draggable:active {
+    cursor: grabbing;
+}
+
+/* =========================================
+   RESPONSIVIDAD
+   ========================================= */
+@media (max-width: 1024px) {
+    .canvas-card {
+        grid-column: span 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .apis-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .drop-zones {
+        grid-template-columns: 1fr;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+}

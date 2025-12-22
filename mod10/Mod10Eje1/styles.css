@@ -1,0 +1,245 @@
+/* =========================================
+   1. VARIABLES DE ENERGÍA (Paleta de Fuego)
+   ========================================= */
+:root {
+    --bg-main: #120000;              /* Negro Carbón Profundo */
+    --bg-gradient: linear-gradient(135deg, #1A0000 0%, #4D0000 100%);
+    --card-bg: #1e1e1e;              /* Negro Obsidiana */
+    --fire-bright: #FF4500;          /* Rojo-Naranja (Llama) */
+    --fire-subtle: #8B0000;          /* Rojo Oscuro (Brasa) */
+    --gold-melt: #FFD700;            /* Oro (Punto de Fusión) */
+    --text-warm: #FFE0B2;            /* Beige Cálido */
+    --shadow-glow: rgba(255, 69, 0, 0.3);
+}
+
+/* =========================================
+   2. RESET Y CUERPO (El Abismo)
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg-gradient);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    color: var(--text-warm);
+}
+
+.container {
+    width: 100%;
+    max-width: 500px;
+}
+
+/* =========================================
+   3. CONTENEDOR (Cristal Volcánico)
+   ========================================= */
+.form-wrapper {
+    background: var(--card-bg);
+    padding: 2.5rem;
+    border-radius: 20px;
+    border: 1px solid var(--fire-subtle);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6), 
+                0 0 20px var(--shadow-glow);
+    position: relative;
+    overflow: hidden;
+}
+
+h1 {
+    color: var(--gold-melt);
+    margin-bottom: 0.5rem;
+    font-size: 2.2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+}
+
+.subtitle {
+    color: var(--fire-bright);
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: 500;
+}
+
+/* =========================================
+   4. INPUTS Y GRUPOS (Brasas Activas)
+   ========================================= */
+.form-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.6rem;
+    color: var(--text-warm);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"] {
+    width: 100%;
+    padding: 1rem;
+    background: #2b2b2b;
+    border: 2px solid var(--fire-subtle);
+    border-radius: 10px;
+    font-size: 1rem;
+    color: #fff;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--fire-bright);
+    background: #333;
+    box-shadow: 0 0 15px var(--shadow-glow);
+    transform: scale(1.01);
+}
+
+/* Estados de Validación */
+input.valid {
+    border-color: var(--gold-melt);
+}
+
+input.invalid {
+    border-color: #ff3131;
+}
+
+.error-message {
+    display: none;
+    color: #ff3131;
+    font-size: 0.8rem;
+    margin-top: 0.4rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.form-group.error .error-message {
+    display: block;
+    animation: shake 0.3s ease;
+}
+
+.success-icon {
+    position: absolute;
+    right: 1.2rem;
+    top: 2.9rem;
+    color: var(--gold-melt);
+    font-size: 1.2rem;
+    display: none;
+    text-shadow: 0 0 8px var(--gold-melt);
+}
+
+/* =========================================
+   5. FORTALEZA DE CONTRASEÑA (Magma Dinámico)
+   ========================================= */
+.password-strength {
+    margin-top: 0.8rem;
+}
+
+.strength-bar {
+    height: 6px;
+    background: #444;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+    border: 1px solid #111;
+}
+
+.strength-bar::before {
+    content: '';
+    display: block;
+    height: 100%;
+    width: 0%;
+    transition: width 0.5s ease-in-out, background 0.5s ease;
+    box-shadow: 0 0 10px rgba(255, 69, 0, 0.5);
+}
+
+.strength-bar.weak::before {
+    width: 33%;
+    background: #ff3131; /* Rojo Sangre */
+}
+
+.strength-bar.medium::before {
+    width: 66%;
+    background: var(--fire-bright); /* Naranja Fuego */
+}
+
+.strength-bar.strong::before {
+    width: 100%;
+    background: var(--gold-melt); /* Oro Fundido */
+}
+
+.strength-text {
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--fire-bright);
+}
+
+/* =========================================
+   6. BOTONES Y EXTRAS (Explosión)
+   ========================================= */
+.submit-btn {
+    width: 100%;
+    padding: 1.1rem;
+    background: linear-gradient(135deg, var(--fire-bright) 0%, var(--fire-subtle) 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    margin-top: 1rem;
+}
+
+.submit-btn:hover:not(:disabled) {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 25px var(--shadow-glow);
+    filter: brightness(1.1);
+}
+
+.submit-btn:disabled {
+    opacity: 0.4;
+    filter: grayscale(1);
+}
+
+.login-link {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: var(--text-warm);
+    font-size: 0.9rem;
+}
+
+.login-link a {
+    color: var(--gold-melt);
+    text-decoration: none;
+    font-weight: bold;
+    border-bottom: 1px solid transparent;
+    transition: 0.3s;
+}
+
+.login-link a:hover {
+    color: var(--fire-bright);
+    border-bottom-color: var(--fire-bright);
+}
+
+/* Animaciones */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}

@@ -1,0 +1,209 @@
+/* =========================================
+   1. VARIABLES DE ENERGÍA (Paleta de Fuego)
+   ========================================= */
+:root {
+    --bg-abyss: #120000;              /* Negro Carbón Profundo */
+    --bg-gradient: linear-gradient(135deg, #1A0000 0%, #4D0000 100%);
+    --obsidian: #1e1e1e;              /* Negro de la tarjeta */
+    --fire-main: #FF4500;             /* Rojo-Naranja (Llama) */
+    --fire-glow: #FF8C00;             /* Naranja Brasa */
+    --gold-melt: #FFD700;             /* Oro (Punto de Fusión) */
+    --text-warm: #FFE0B2;             /* Beige Cálido */
+    --danger: #8B0000;                /* Rojo Sangre */
+    --shadow-fire: rgba(255, 69, 0, 0.3);
+}
+
+/* =========================================
+   2. RESET Y CUERPO (Ambiente Térmico)
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+body {
+    background: var(--bg-gradient);
+    color: var(--text-warm);
+    padding: 20px;
+    min-height: 100vh;
+}
+
+/* =========================================
+   3. ESTRUCTURA (Layout de Forja)
+   ========================================= */
+.container {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 25px;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+/* =========================================
+   4. PANEL DE FILTROS (Consola de Mando)
+   ========================================= */
+.filters {
+    background: var(--obsidian);
+    padding: 25px;
+    border-radius: 15px;
+    border: 1px solid var(--danger);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 
+                0 0 15px var(--shadow-fire);
+    height: sticky;
+    top: 20px;
+    align-self: start;
+}
+
+.filters h2 { 
+    margin-bottom: 25px; 
+    font-size: 1.4rem; 
+    color: var(--gold-melt);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+.filter-group label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 10px;
+    font-size: 0.85rem;
+    color: var(--fire-glow);
+    text-transform: uppercase;
+}
+
+/* Inputs, Selects y Range estilo Magma */
+input[type="text"], 
+input[type="range"],
+select {
+    width: 100%;
+    padding: 12px;
+    background: #2b2b2b;
+    border: 2px solid #3d0000;
+    border-radius: 8px;
+    color: #fff;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+input[type="text"]:focus, select:focus {
+    outline: none;
+    border-color: var(--fire-main);
+    box-shadow: 0 0 12px var(--shadow-fire);
+    background: #333;
+}
+
+/* Slider de precio personalizado */
+input[type="range"] {
+    accent-color: var(--fire-main);
+    cursor: pointer;
+}
+
+.radio-options label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: normal;
+    color: var(--text-warm);
+    margin-bottom: 8px;
+    transition: color 0.2s;
+}
+
+.radio-options input[type="radio"] {
+    accent-color: var(--gold-melt);
+}
+
+/* =========================================
+   5. GRILLA Y TARJETAS (Resultados Incandescentes)
+   ========================================= */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+/* Tarjeta de Producto de Élite */
+.card {
+    background: var(--obsidian);
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #333;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+.card:hover { 
+    transform: translateY(-8px); 
+    border-color: var(--fire-main);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6), 
+                0 0 20px var(--shadow-fire);
+}
+
+.card h4 { 
+    margin-bottom: 12px; 
+    color: var(--gold-melt);
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+}
+
+/* =========================================
+   6. PAGINACIÓN Y BOTONES (Ignición)
+   ========================================= */
+.pagination {
+    margin-top: 40px;
+    padding-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.btn-page, .btn-secondary {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+}
+
+.btn-page { 
+    background: linear-gradient(135deg, var(--fire-main) 0%, var(--danger) 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(139, 0, 0, 0.4);
+}
+
+.btn-page:hover:not(:disabled) { 
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px var(--shadow-fire);
+    filter: brightness(1.2);
+}
+
+.btn-page:disabled { 
+    background: #333; 
+    color: #666; 
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.btn-secondary { 
+    background: transparent; 
+    border: 2px solid var(--fire-glow);
+    color: var(--fire-glow);
+    margin-top: 10px;
+}
+
+.btn-secondary:hover {
+    background: var(--fire-glow);
+    color: #000;
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+    .container { grid-template-columns: 1fr; }
+    .filters { position: static; margin-bottom: 20px; }
+}

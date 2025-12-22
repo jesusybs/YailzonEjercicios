@@ -1,0 +1,173 @@
+/* =========================================
+   1. VARIABLES DE ENERGÍA (Estética de Fuego)
+   ========================================= */
+:root {
+    --bg-abyss: #120000;              /* Negro Carbón */
+    --bg-gradient: linear-gradient(135deg, #1A0000 0%, #4D0000 100%);
+    --obsidian: #1e1e1e;              /* Fondo de Tarjeta */
+    --magma-bright: #FF4500;          /* Rojo-Naranja (Llama) */
+    --magma-glow: #FF8C00;            /* Naranja Brasa */
+    --gold-melt: #FFD700;             /* Oro (Punto de Fusión) */
+    --text-ash: #FFE0B2;              /* Beige Cálido */
+    --danger: #8B0000;                /* Rojo Sangre */
+    --shadow-fire: rgba(255, 69, 0, 0.3);
+}
+
+/* =========================================
+   2. RESET Y CUERPO (Ambiente Térmico)
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: var(--bg-gradient);
+    color: var(--text-ash);
+    min-height: 100vh;
+    padding: 2rem 1rem;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.header h1 {
+    font-size: 3.5rem;
+    color: var(--gold-melt);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+}
+
+/* =========================================
+   3. LA APP (Consola de Obsidiana)
+   ========================================= */
+.weather-app {
+    background: var(--obsidian);
+    border-radius: 25px;
+    padding: 2.5rem;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 20px var(--shadow-fire);
+    border: 1px solid var(--danger);
+}
+
+/* Controles de búsqueda */
+.search-box input {
+    background: #2b2b2b;
+    border: 2px solid #3d0000;
+    color: #fff;
+    border-radius: 12px;
+}
+
+.search-box input:focus {
+    outline: none;
+    border-color: var(--magma-bright);
+    box-shadow: 0 0 12px var(--shadow-fire);
+}
+
+.search-box button {
+    background: linear-gradient(135deg, var(--magma-bright) 0%, var(--danger) 100%);
+    text-transform: uppercase;
+    font-weight: 800;
+    border-radius: 12px;
+}
+
+.btn-icon {
+    background: #2a2a2a;
+    border: 1px solid #444;
+    transition: 0.3s;
+}
+
+.btn-icon:hover {
+    border-color: var(--gold-melt);
+    transform: scale(1.1);
+}
+
+.btn-toggle {
+    background: var(--danger);
+    border: 1px solid var(--magma-bright);
+    color: var(--gold-melt);
+}
+
+/* =========================================
+   4. CLIMA ACTUAL (El Núcleo)
+   ========================================= */
+.current-weather {
+    background: linear-gradient(135deg, #2b1212 0%, #120000 100%);
+    border: 1px solid var(--magma-bright);
+    box-shadow: inset 0 0 20px rgba(255, 69, 0, 0.2);
+}
+
+.weather-temp {
+    font-size: 5rem;
+    color: var(--gold-melt);
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+}
+
+.weather-description {
+    color: var(--magma-glow);
+    font-weight: 700;
+}
+
+.detail-item {
+    background: rgba(255, 69, 0, 0.1);
+    border: 1px solid rgba(255, 69, 0, 0.2);
+    border-left: 4px solid var(--magma-bright);
+}
+
+/* =========================================
+   5. PRONÓSTICO Y FAVORITOS (Brasas)
+   ========================================= */
+.forecast-section h2, .favorites-section h2 {
+    color: var(--gold-melt);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 2px solid var(--danger);
+    padding-bottom: 0.5rem;
+}
+
+.forecast-card {
+    background: #252525;
+    border: 1px solid #333;
+    transition: 0.3s;
+}
+
+.forecast-card:hover {
+    border-color: var(--magma-bright);
+    transform: translateY(-5px);
+}
+
+.forecast-card .day { color: var(--magma-glow); }
+.forecast-card .temp { color: var(--gold-melt); }
+
+.favorite-item {
+    background: #2a2a2a;
+    border: 1px solid #444;
+    color: var(--text-ash);
+}
+
+.favorite-item:hover {
+    border-color: var(--gold-melt);
+    background: #333;
+}
+
+/* =========================================
+   6. MODAL Y ICONOS
+   ========================================= */
+.weather-icon img {
+    filter: drop-shadow(0 0 15px var(--magma-bright));
+}
+
+.modal-content {
+    background: var(--obsidian);
+    border: 2px solid var(--magma-bright);
+    color: var(--text-ash);
+}

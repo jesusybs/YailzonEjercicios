@@ -1,0 +1,205 @@
+/* =========================================
+   1. VARIABLES DE ENERGÍA (La Forja Boss)
+   ========================================= */
+:root {
+    --bg-abyss: #0d0000;              /* Negro Carbón Profundo */
+    --bg-gradient: linear-gradient(135deg, #1A0000 0%, #4D0000 100%);
+    --obsidian: #1e1e1e;              /* Fondo de Tarjetas */
+    --magma-bright: #FF4500;          /* Rojo-Naranja (Llama) */
+    --magma-glow: #FF8C00;            /* Naranja Brasa */
+    --gold-melt: #FFD700;             /* Oro (Punto de Fusión) */
+    --text-ash: #FFE0B2;              /* Beige Ceniza */
+    --danger: #8B0000;                /* Rojo Sangre */
+    --shadow-fire: rgba(255, 69, 0, 0.4);
+}
+
+/* =========================================
+   2. RESET Y CUERPO (Ambiente Volcánico)
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: var(--bg-gradient);
+    min-height: 100vh;
+    padding: 2rem;
+    color: var(--text-ash);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1 {
+    color: var(--gold-melt);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 2.8rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+}
+
+.subtitle {
+    color: var(--magma-glow);
+    text-align: center;
+    margin-bottom: 2.5rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+/* =========================================
+   3. UPLOAD AREA (Portal de Ignición)
+   ========================================= */
+.upload-area {
+    background: var(--obsidian);
+    border-radius: 20px;
+    padding: 3.5rem;
+    text-align: center;
+    border: 3px dashed var(--danger);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+}
+
+.upload-area.drag-over {
+    border-color: var(--magma-bright);
+    background: rgba(255, 69, 0, 0.1);
+    box-shadow: 0 0 30px var(--shadow-fire);
+    transform: scale(1.02);
+}
+
+.upload-icon {
+    font-size: 4.5rem;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 0 10px var(--magma-glow));
+}
+
+.btn-upload {
+    padding: 1rem 2.5rem;
+    background: linear-gradient(135deg, var(--magma-bright) 0%, var(--danger) 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin: 1.5rem 0;
+    transition: all 0.3s;
+    box-shadow: 0 5px 15px rgba(139, 0, 0, 0.4);
+}
+
+.btn-upload:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px var(--shadow-fire);
+    filter: brightness(1.2);
+}
+
+/* =========================================
+   4. MONITOR DE ESTADO (Consola de Calor)
+   ========================================= */
+.stats {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 1.2rem 2.5rem;
+    border-radius: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2.5rem;
+    border: 1px solid var(--danger);
+    backdrop-filter: blur(10px);
+}
+
+.stats strong {
+    color: var(--gold-melt);
+    text-shadow: 0 0 5px var(--magma-glow);
+}
+
+.btn-clear {
+    padding: 0.7rem 1.5rem;
+    background: transparent;
+    color: var(--magma-bright);
+    border: 2px solid var(--magma-bright);
+    border-radius: 30px;
+    font-weight: 800;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-clear:hover {
+    background: var(--magma-bright);
+    color: #000;
+    box-shadow: 0 0 15px var(--shadow-fire);
+}
+
+/* =========================================
+   5. GALERÍA (Lingotes Incandescentes)
+   ========================================= */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.8rem;
+}
+
+.gallery-item {
+    background: var(--obsidian);
+    border-radius: 15px;
+    border: 1px solid #333;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+    transition: all 0.4s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-10px);
+    border-color: var(--magma-bright);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.8), 0 0 20px var(--shadow-fire);
+}
+
+.gallery-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-bottom: 2px solid var(--danger);
+}
+
+.gallery-info {
+    padding: 1.2rem;
+}
+
+.image-name {
+    color: var(--gold-melt);
+    font-weight: 700;
+}
+
+.btn-remove {
+    background: var(--danger);
+    border: 1px solid var(--magma-bright);
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+/* =========================================
+   6. MODAL (Cámara de Visualización)
+   ========================================= */
+.modal-overlay {
+    background: rgba(10, 0, 0, 0.95);
+    backdrop-filter: blur(5px);
+}
+
+.modal-close {
+    background: var(--magma-bright);
+    color: white;
+    font-weight: bold;
+}
+
+.modal-info {
+    background: var(--obsidian);
+    border-top: 3px solid var(--gold-melt);
+    color: var(--text-ash);
+}

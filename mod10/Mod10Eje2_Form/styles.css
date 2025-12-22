@@ -1,0 +1,229 @@
+/* =========================================
+   1. VARIABLES DE LA FORJA (Energy Palette)
+   ========================================= */
+:root {
+    --bg-abyss: #120000;
+    --bg-gradient: linear-gradient(135deg, #1A0000 0%, #4D0000 100%);
+    --obsidian: #1e1e1e;
+    --magma-bright: #FF4500;
+    --magma-glow: #FF8C00;
+    --gold-ore: #FFD700;
+    --ash: #FFE0B2;
+    --danger: #8B0000;
+    --shadow-fire: rgba(255, 69, 0, 0.3);
+}
+
+/* =========================================
+   2. RESET Y CUERPO (Ambiente Térmico)
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg-gradient);
+    min-height: 100vh;
+    padding: 2rem;
+    color: var(--ash);
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* =========================================
+   3. WIZARD CONTAINER (Obsidiana Forjada)
+   ========================================= */
+.wizard-container {
+    background: var(--obsidian);
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6), 
+                0 0 30px var(--shadow-fire);
+    border: 1px solid var(--danger);
+}
+
+h1 {
+    text-align: center;
+    color: var(--gold-ore);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 2.5rem;
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+}
+
+/* =========================================
+   4. PROGRESS BAR (Línea de Combustión)
+   ========================================= */
+.progress-bar {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3.5rem;
+    position: relative;
+}
+
+.progress-bar::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: #333; /* Línea fría */
+    z-index: 0;
+}
+
+/* Barra de progreso caliente (opcional con JS para animar el width) */
+.progress-step {
+    flex: 1;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.step-number {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: #2a2a2a;
+    border: 2px solid #444;
+    color: #666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 0.7rem;
+    font-weight: bold;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Pasos Activos y Completados */
+.progress-step.active .step-number {
+    background: var(--magma-bright);
+    color: white;
+    border-color: var(--gold-ore);
+    box-shadow: 0 0 20px var(--magma-bright);
+    transform: scale(1.15);
+}
+
+.progress-step.completed .step-number {
+    background: var(--danger);
+    color: var(--gold-ore);
+    border-color: var(--magma-glow);
+}
+
+.step-label {
+    font-size: 0.8rem;
+    color: var(--ash);
+    text-transform: uppercase;
+    font-weight: 600;
+    opacity: 0.7;
+}
+
+.progress-step.active .step-label {
+    opacity: 1;
+    color: var(--magma-glow);
+}
+
+/* =========================================
+   5. INPUTS Y FORM (Elementos de Forja)
+   ========================================= */
+.form-step h2 {
+    color: var(--magma-glow);
+    margin-bottom: 2rem;
+    border-bottom: 2px solid var(--danger);
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+label {
+    color: var(--ash);
+    font-size: 0.9rem;
+    margin-bottom: 0.6rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+    background: #2b2b2b;
+    border: 2px solid #444;
+    border-radius: 10px;
+    color: #fff;
+    padding: 0.9rem;
+    transition: all 0.3s;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: var(--magma-bright);
+    box-shadow: 0 0 10px var(--shadow-fire);
+    background: #333;
+}
+
+/* Estilo de los Resúmenes (Paso 4) */
+.summary-section {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid #333;
+    border-left: 4px solid var(--gold-ore);
+}
+
+.summary-section h3 {
+    color: var(--gold-ore);
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+/* =========================================
+   6. NAVEGACIÓN (Botones de Ignición)
+   ========================================= */
+.btn {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--magma-bright) 0%, var(--danger) 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(139, 0, 0, 0.4);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #ff6a00 0%, #a50000 100%);
+    box-shadow: 0 6px 20px var(--shadow-fire);
+    transform: translateY(-3px);
+}
+
+.btn-secondary {
+    background: #333;
+    color: var(--ash);
+    border: 1px solid #555;
+}
+
+.btn-secondary:hover {
+    background: #444;
+    border-color: var(--ash);
+}
+
+.btn-success {
+    background: linear-gradient(135deg, var(--gold-ore) 0%, var(--magma-glow) 100%);
+    color: #000; /* Contraste negro sobre oro */
+}
+
+/* =========================================
+   7. MODAL Y ÉXITO
+   ========================================= */
+.modal-content {
+    background: var(--obsidian);
+    border: 2px solid var(--gold-ore);
+    box-shadow: 0 0 50px var(--shadow-fire);
+    color: var(--ash);
+}
+
+.modal-content h2 {
+    color: var(--gold-melt);
+}

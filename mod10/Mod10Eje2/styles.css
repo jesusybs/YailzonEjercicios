@@ -1,0 +1,201 @@
+/* =========================================
+   1. VARIABLES DE ENERGÍA (La Forja)
+   ========================================= */
+:root {
+    --bg-main: #120000;              /* Negro Carbón */
+    --bg-gradient: linear-gradient(135deg, #1A0000 0%, #4D0000 100%);
+    --card-bg: #1e1e1e;              /* Obsidiana */
+    --fire-bright: #FF4500;          /* Naranja Llama */
+    --fire-subtle: #8B0000;          /* Rojo Sangre */
+    --gold-melt: #FFD700;            /* Oro Fundido */
+    --text-warm: #FFE0B2;            /* Beige Cálido */
+    --shadow-glow: rgba(255, 69, 0, 0.3);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: var(--bg-gradient);
+    min-height: 100vh;
+    padding: 2rem 1rem;
+    color: var(--text-warm);
+}
+
+.container {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* =========================================
+   2. TARJETA Y CABECERA (Modo Boss)
+   ========================================= */
+.calculator-card {
+    background: var(--card-bg);
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6), 
+                0 0 20px var(--shadow-glow);
+    border: 1px solid var(--fire-subtle);
+}
+
+h1 {
+    color: var(--gold-melt);
+    text-align: center;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+}
+
+.subtitle {
+    text-align: center;
+    color: var(--fire-bright);
+    margin-bottom: 2rem;
+    font-weight: 500;
+}
+
+/* =========================================
+   3. INPUTS Y RADIOS (Brasas Activas)
+   ========================================= */
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-warm);
+    font-weight: 600;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.9rem;
+    background: #2b2b2b;
+    border: 2px solid var(--fire-subtle);
+    border-radius: 10px;
+    font-size: 1rem;
+    color: #fff;
+    transition: all 0.3s;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--fire-bright);
+    box-shadow: 0 0 15px var(--shadow-glow);
+    background: #333;
+}
+
+/* Estados de Validación */
+.form-group input.valid { border-color: var(--gold-melt); }
+.form-group input.invalid { border-color: #ff3131; }
+
+.error-message {
+    color: #ff3131;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+}
+
+.radio-label { color: var(--text-warm); }
+.radio-label input { accent-color: var(--fire-bright); }
+
+/* =========================================
+   4. BOTÓN (Explosión Térmica)
+   ========================================= */
+.btn-calculate {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, var(--fire-bright) 0%, var(--fire-subtle) 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+.btn-calculate:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px var(--shadow-glow);
+    filter: brightness(1.2);
+}
+
+/* =========================================
+   5. RESULTADOS Y BARRA (El Espectro de Calor)
+   ========================================= */
+.result-section {
+    border-top: 2px solid var(--fire-subtle);
+}
+
+.result-section h2 { color: var(--gold-melt); }
+
+.imc-value {
+    font-size: 5rem;
+    color: var(--gold-melt);
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+}
+
+.imc-category {
+    color: var(--fire-bright);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* La barra de colores adaptada al fuego */
+.imc-bar {
+    height: 50px;
+    border: 2px solid #111;
+}
+
+.bar-segment.bajo-peso { background: #5aebff; color: #000; } /* Azul hielo */
+.bar-segment.normal { background: #ffd700; color: #000; }    /* Oro */
+.bar-segment.sobrepeso { background: #ff8c00; color: #000; } /* Naranja */
+.bar-segment.obesidad { background: #ff0000; color: #fff; }  /* Rojo Infierno */
+
+.imc-indicator {
+    border-top: 20px solid var(--text-warm);
+    filter: drop-shadow(0 0 5px var(--fire-bright));
+}
+
+/* =========================================
+   6. RECOMENDACIONES E HISTORIAL (Brasas)
+   ========================================= */
+.imc-ranges {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--fire-subtle);
+}
+
+.imc-ranges h3 { color: var(--text-warm); }
+
+.dot.bajo-peso { background: #5aebff; }
+.dot.normal { background: #ffd700; }
+.dot.sobrepeso { background: #ff8c00; }
+.dot.obesidad { background: #ff0000; }
+
+.recommendations {
+    background: rgba(255, 69, 0, 0.1);
+    border-left: 4px solid var(--fire-bright);
+}
+
+.recommendations h3 { color: var(--fire-bright); }
+
+.history-item {
+    background: #252525;
+    border-left: 3px solid var(--fire-subtle);
+}
+
+.history-imc { color: var(--gold-melt); }
+
+.btn-clear-history {
+    color: var(--fire-bright);
+    border: 2px solid var(--fire-bright);
+}
+
+.btn-clear-history:hover {
+    background: var(--fire-bright);
+}

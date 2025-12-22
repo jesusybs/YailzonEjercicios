@@ -1,0 +1,172 @@
+/* =========================================
+   1. VARIABLES DE ENERGÍA (La Forja)
+   ========================================= */
+:root {
+    --bg-abyss: #120000;              /* Negro Carbón */
+    --bg-gradient: linear-gradient(135deg, #1A0000 0%, #4D0000 100%);
+    --obsidian: #1e1e1e;              /* Fondo de Columnas */
+    --fire-bright: #FF4500;          /* Rojo-Naranja (Llama) */
+    --fire-glow: #FF8C00;            /* Naranja Brasa */
+    --gold-melt: #FFD700;             /* Oro (Punto de Fusión) */
+    --text-ash: #FFE0B2;              /* Beige Cálido */
+    --danger: #8B0000;                /* Rojo Sangre */
+    --shadow-fire: rgba(255, 69, 0, 0.3);
+}
+
+/* =========================================
+   2. RESET Y CUERPO (Ambiente Térmico)
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: var(--bg-gradient);
+    min-height: 100vh;
+    padding: 2rem;
+    color: var(--text-ash);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1 {
+    color: var(--gold-melt);
+    text-align: center;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+}
+
+.subtitle {
+    color: var(--fire-glow);
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: 600;
+}
+
+/* =========================================
+   3. CONTROLES (Consola de Ignición)
+   ========================================= */
+.controls {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.btn {
+    padding: 0.8rem 1.5rem;
+    background: linear-gradient(135deg, var(--fire-bright) 0%, var(--danger) 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 800;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px var(--shadow-fire);
+    filter: brightness(1.2);
+}
+
+/* =========================================
+   4. COLUMNAS (Módulos de Obsidiana)
+   ========================================= */
+.columns {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.column {
+    background: var(--obsidian);
+    border-radius: 15px;
+    padding: 1.5rem;
+    border: 1px solid var(--danger);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.column h2 {
+    color: var(--gold-melt);
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--danger);
+    padding-bottom: 0.5rem;
+}
+
+/* =========================================
+   5. DROPZONE (Campo de Gravedad Térmica)
+   ========================================= */
+.dropzone {
+    min-height: 350px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    padding: 1rem;
+    border: 2px dashed #333;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dropzone.drag-over {
+    background: rgba(255, 69, 0, 0.1);
+    border-color: var(--fire-bright);
+    box-shadow: inset 0 0 20px var(--shadow-fire);
+}
+
+/* =========================================
+   6. ITEMS (Lingotes de Tarea)
+   ========================================= */
+.item {
+    background: #2a2a2a;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    cursor: grab;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    border: 1px solid #444;
+    transition: all 0.3s;
+    color: #fff;
+}
+
+.item:hover {
+    transform: translateX(5px);
+    border-color: var(--fire-glow);
+    box-shadow: 0 5px 15px rgba(255, 140, 0, 0.2);
+}
+
+.item.dragging {
+    opacity: 0.7;
+    transform: rotate(3deg) scale(1.05);
+    background: var(--fire-bright);
+    border-color: var(--gold-melt);
+    box-shadow: 0 15px 30px rgba(255, 69, 0, 0.5);
+}
+
+.drag-handle {
+    font-size: 1.2rem;
+    color: var(--fire-glow);
+    cursor: grab;
+    text-shadow: 0 0 5px var(--danger);
+}
+
+/* =========================================
+   7. RESPONSIVIDAD
+   ========================================= */
+@media (max-width: 768px) {
+    .columns {
+        grid-template-columns: 1fr;
+    }
+}

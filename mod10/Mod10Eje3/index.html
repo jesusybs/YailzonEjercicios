@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscador Avanzado con Filtros Reales</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="container">
+        <aside class="filters">
+            <h2>Filtros</h2>
+            <form id="filterForm">
+                
+                <div class="filter-group">
+                    <label for="search">Palabra clave:</label>
+                    <input type="text" id="search" name="q" placeholder="Ej: Laptop, Camisa...">
+                </div>
+
+                <div class="filter-group">
+                    <label for="category">Categoría:</label>
+                    <select name="category" id="category">
+                        <option value="">Todas las categorías</option>
+                        <option value="electronics">Electrónica</option>
+                        <option value="clothing">Ropa y Accesorios</option>
+                        <option value="home">Hogar y Jardín</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label>Precio Máximo: <span id="priceLabel">$1000</span></label>
+                    <input type="range" name="maxPrice" id="maxPrice" min="0" max="1000" step="50" value="1000">
+                </div>
+
+                <div class="filter-group">
+                    <label>Calificación mínima:</label>
+                    <div class="radio-options">
+                        <label><input type="radio" name="rating" value="4"> 4+ estrellas</label>
+                        <label><input type="radio" name="rating" value="3"> 3+ estrellas</label>
+                        <label><input type="radio" name="rating" value="0" checked> Todas</label>
+                    </div>
+                </div>
+
+                <button type="button" id="clearBtn" class="btn-secondary">Limpiar Filtros</button>
+            </form>
+        </aside>
+
+        <main class="content">
+            <header class="results-header">
+                <span id="resultsCount">Cargando...</span>
+            </header>
+
+            <div id="resultsGrid" class="grid"></div>
+
+            <footer class="pagination">
+                <button id="prevBtn" class="btn-page">Anterior</button>
+                <span id="pageInfo">Página 1 de 1</span>
+                <button id="nextBtn" class="btn-page">Siguiente</button>
+            </footer>
+        </main>
+    </div>
+
+    <script src="javascript.js"></script>
+</body>
+</html>
