@@ -1,12 +1,26 @@
+/* =====================================
+   ESTILO GLOBAL: Rojo Oscuro y Carbón
+   ===================================== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Paleta de Fuego */
+:root {
+    --color-primary-fire: #FF4500;   /* Rojo-Naranja Brillante (Éxito / Llama) */
+    --color-dark-fire: #4D0000;      /* Rojo Profundo (Advertencia / Brasa) */
+    --color-error: #8B0000;          /* Rojo Oscuro Intenso (Peligro) */
+    --color-success: #FF8C00;        /* Naranja Oscuro (Logro) */
+    --color-background-dark: #1A0000;/* Negro Carbón */
+    --color-input-focus: #FF8C00;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    /* Fondo dramático */
+    background: linear-gradient(135deg, #1A0000 0%, #4D0000 100%);
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -20,21 +34,25 @@ body {
 }
 
 .form-wrapper {
-    background: white;
+    /* Fondo oscuro para contraste */
+    background: #1e1e1e; 
     padding: 2.5rem;
     border-radius: 20px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    /* Sombra de resplandor naranja */
+    box-shadow: 0 20px 80px rgba(255, 69, 0, 0.3);
 }
 
 h1 {
-    color: #333;
+    /* Título color llama */
+    color: var(--color-success); 
     margin-bottom: 0.5rem;
     text-align: center;
 }
 
 .subtitle {
     text-align: center;
-    color: #666;
+    /* Subtítulo en tono cálido */
+    color: #a0a0a0; 
     margin-bottom: 2rem;
     font-size: 0.95rem;
 }
@@ -47,7 +65,8 @@ h1 {
 label {
     display: block;
     margin-bottom: 0.5rem;
-    color: #333;
+    /* Etiquetas en blanco/gris claro */
+    color: #f0f0f0; 
     font-weight: 600;
     font-size: 0.95rem;
 }
@@ -58,7 +77,11 @@ input[type="password"],
 input[type="number"] {
     width: 100%;
     padding: 0.9rem;
-    border: 2px solid #e0e0e0;
+    /* Fondo oscuro para los inputs */
+    background: #333; 
+    color: #fff;
+    /* Borde de brasa apagada */
+    border: 2px solid #555; 
     border-radius: 10px;
     font-size: 1rem;
     transition: all 0.3s ease;
@@ -66,23 +89,29 @@ input[type="number"] {
 
 input:focus {
     outline: none;
-    border-color: #667eea;
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    /* Foco color llama */
+    border-color: var(--color-input-focus); 
+    box-shadow: 0 0 0 3px rgba(255, 140, 0, 0.3);
 }
 
+/* ESTADOS DE VALIDACIÓN */
 input.valid {
-    border-color: #4caf50;
+    /* Éxito: Naranja Fuego */
+    border-color: var(--color-success); 
 }
 
 input.invalid {
-    border-color: #f44336;
+    /* Error: Rojo Oscuro Peligro */
+    border-color: var(--color-error); 
 }
 
 .error-message {
     display: none;
-    color: #f44336;
+    /* Mensaje de error: Rojo Oscuro Intenso */
+    color: var(--color-error); 
     font-size: 0.85rem;
     margin-top: 0.3rem;
+    font-weight: bold;
 }
 
 .form-group.error .error-message {
@@ -93,27 +122,33 @@ input.invalid {
     position: absolute;
     right: 1rem;
     top: 2.8rem;
-    color: #4caf50;
+    /* Icono de éxito: Naranja Fuego */
+    color: var(--color-success); 
     font-size: 1.2rem;
     display: none;
     font-weight: bold;
+    /* Resplandor sutil */
+    text-shadow: 0 0 5px rgba(255, 140, 0, 0.5); 
 }
 
 .form-group.valid .success-icon {
     display: block;
 }
 
+/* REQUISITOS DE CONTRASEÑA */
 .password-requirements {
     margin-top: 0.8rem;
     padding: 0.8rem;
-    background: #f8f9fa;
+    /* Fondo de brasa sutil */
+    background: #2b0000; 
     border-radius: 8px;
     font-size: 0.85rem;
 }
 
 .requirement {
     margin: 0.3rem 0;
-    color: #666;
+    /* Texto de requisito pendiente */
+    color: #a0a0a0; 
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -124,18 +159,21 @@ input.invalid {
     width: 16px;
     height: 16px;
     border-radius: 50%;
-    border: 2px solid #ccc;
+    /* Borde de brasa apagada */
+    border: 2px solid #555; 
     text-align: center;
     line-height: 12px;
+    color: #555;
 }
 
 .requirement.met {
-    color: #4caf50;
+    /* Requisito cumplido: Naranja Fuego */
+    color: var(--color-success); 
 }
 
 .requirement.met .req-icon {
-    border-color: #4caf50;
-    background: #4caf50;
+    border-color: var(--color-success);
+    background: var(--color-success);
     color: white;
 }
 
@@ -162,11 +200,13 @@ input.invalid {
     cursor: pointer;
 }
 
+/* BOTÓN DE ENVÍO */
 .submit-btn {
     width: 100%;
     padding: 1rem;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
+    /* Degradado de Llama Vigorosa */
+    background: linear-gradient(135deg, var(--color-primary-fire) 0%, #FFA500 100%);
+    color: #1a1a1a; /* Texto oscuro sobre el brillo */
     border: none;
     border-radius: 10px;
     font-size: 1.1rem;
@@ -177,22 +217,28 @@ input.invalid {
 }
 
 .submit-btn:hover:not(:disabled) {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+    transform: translateY(-4px);
+    /* Sombra de hover más ardiente */
+    box-shadow: 0 8px 25px rgba(255, 69, 0, 0.6); 
 }
 
 .submit-btn:disabled {
-    opacity: 0.5;
+    opacity: 0.4;
     cursor: not-allowed;
-    background: #ccc;
+    /* Deshabilitado: Gris Carbón */
+    background: #444; 
+    color: #aaa;
 }
 
+/* RESUMEN DEL FORMULARIO */
 .form-summary {
     margin-top: 1.5rem;
     padding: 1rem;
-    background: #e8f5e9;
+    /* Fondo de brasa sutil al tener éxito */
+    background: #330000; 
     border-radius: 10px;
-    border-left: 4px solid #4caf50;
+    /* Borde de llama de éxito */
+    border-left: 4px solid var(--color-success); 
     display: none;
 }
 
@@ -201,12 +247,13 @@ input.invalid {
 }
 
 .form-summary h3 {
-    color: #2e7d32;
+    /* Texto de resumen en tono Oro */
+    color: #FFD700; 
     margin-bottom: 0.5rem;
 }
 
 .form-summary p {
-    color: #555;
+    color: #f0f0f0;
     font-size: 0.9rem;
 }
 

@@ -1,17 +1,32 @@
+/* =====================================
+   ESTILO GLOBAL: Rojo Oscuro y Brasa
+   ===================================== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Paleta de Fuego */
+:root {
+    --color-primary-fire: #FF4500;   /* Rojo-Naranja Brillante (Llama) */
+    --color-secondary-fire: #FF8C00; /* Naranja Oscuro (Acento) */
+    --color-dark-fire: #4D0000;      /* Rojo Profundo (Rojo Oscuro) */
+    --color-background-dark: #1A0000;/* Negro Carbón */
+    --color-text-light: #FFE0B2;     /* Texto Cálido/Beige */
+    --color-text-highlight: #FFD700; /* Oro/Brillo */
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    /* Fondo dramático */
+    background: linear-gradient(135deg, var(--color-background-dark) 0%, var(--color-dark-fire) 100%);
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 2rem;
+    transition: background-color 0.5s ease;
 }
 
 .container {
@@ -20,18 +35,23 @@ body {
 }
 
 .clock-card {
-    background: rgba(255, 255, 255, 0.95);
+    /* Fondo oscuro/carbón */
+    background: #1e1e1e;
     padding: 3rem;
     border-radius: 30px;
-    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.3);
+    /* Sombra de resplandor naranja */
+    box-shadow: 0 25px 70px rgba(255, 69, 0, 0.4); 
     text-align: center;
-    backdrop-filter: blur(10px);
+    /* Eliminar el filtro blur para un look más sólido */
+    backdrop-filter: none; 
     margin-bottom: 2rem;
+    border: 3px solid var(--color-dark-fire); /* Borde de brasa */
 }
 
 .greeting {
     font-size: 1.8rem;
-    color: #667eea;
+    /* Saludo color llama */
+    color: var(--color-secondary-fire); 
     font-weight: 600;
     margin-bottom: 2rem;
     animation: fadeIn 1s ease;
@@ -48,31 +68,37 @@ body {
 .time {
     font-size: 5rem;
     font-weight: bold;
-    color: #333;
+    /* La hora: Oro brillante (el punto más caliente) */
+    color: var(--color-text-highlight); 
     font-family: 'Courier New', monospace;
     letter-spacing: 2px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    /* Sombra de texto para un efecto de "display brillante" */
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.7); 
     animation: pulse 2s ease-in-out infinite;
 }
 
 @keyframes pulse {
     0%, 100% {
         transform: scale(1);
+        text-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
     }
     50% {
         transform: scale(1.02);
+        text-shadow: 0 0 20px var(--color-primary-fire); /* Pulso color llama */
     }
 }
 
 .period {
     font-size: 2rem;
-    color: #667eea;
+    /* Periodo AM/PM color llama */
+    color: var(--color-primary-fire); 
     font-weight: 600;
 }
 
 .date {
     font-size: 1.3rem;
-    color: #666;
+    /* Fecha en tono cálido */
+    color: var(--color-text-light); 
     margin-bottom: 2rem;
 }
 
@@ -82,20 +108,23 @@ body {
 
 .btn {
     padding: 1rem 2rem;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
+    /* Botón: Degradado de Llama Vigorosa */
+    background: linear-gradient(135deg, var(--color-primary-fire) 0%, #FFA500 100%);
+    color: var(--color-background-dark); /* Texto oscuro sobre el brillo */
     border: none;
     border-radius: 50px;
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    /* Sombra de llama intensa */
+    box-shadow: 0 4px 15px rgba(255, 69, 0, 0.6); 
 }
 
 .btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+    transform: translateY(-4px);
+    /* Sombra de hover más ardiente */
+    box-shadow: 0 10px 30px rgba(255, 69, 0, 0.8);
 }
 
 .btn:active {
@@ -107,7 +136,8 @@ body {
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
-    color: #999;
+    /* Información secundaria en tono cálido */
+    color: #999; 
     font-size: 0.95rem;
     margin-top: 1.5rem;
 }
@@ -118,9 +148,11 @@ body {
 
 #timezone {
     font-family: 'Courier New', monospace;
-    color: #667eea;
+    /* Huso horario color llama */
+    color: var(--color-secondary-fire); 
 }
 
+/* ESTADÍSTICAS */
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -128,35 +160,44 @@ body {
 }
 
 .stat-card {
-    background: rgba(255, 255, 255, 0.95);
+    /* Fondo de brasa sutil */
+    background: var(--color-background-dark); 
     padding: 1.5rem;
     border-radius: 20px;
     text-align: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(10px);
+    /* Sombra sutil de brasa */
+    box-shadow: 0 10px 30px rgba(77, 0, 0, 0.5); 
+    backdrop-filter: none;
     transition: transform 0.3s ease;
+    border: 1px solid var(--color-dark-fire);
 }
 
 .stat-card:hover {
     transform: translateY(-5px);
+    /* Resplandor al pasar el ratón */
+    box-shadow: 0 10px 30px rgba(255, 69, 0, 0.5); 
 }
 
 .stat-icon {
     font-size: 2.5rem;
     margin-bottom: 0.5rem;
+    /* Icono en tono Oro/Brillo */
+    color: var(--color-text-highlight); 
 }
 
 .stat-value {
     font-size: 2rem;
     font-weight: bold;
-    color: #667eea;
+    /* Valor numérico color llama */
+    color: var(--color-primary-fire); 
     font-family: 'Courier New', monospace;
     margin-bottom: 0.3rem;
 }
 
 .stat-label {
     font-size: 0.85rem;
-    color: #666;
+    /* Etiqueta en tono cálido */
+    color: var(--color-text-light); 
     font-weight: 600;
 }
 
@@ -203,10 +244,15 @@ body {
         opacity: 1;
     }
     50% {
-        opacity: 0.3;
+        opacity: 0.1; /* Reducir la opacidad al parpadear para un efecto más dramático en el display oscuro */
     }
 }
 
 .time.blink {
-    animation: blink 1s ease-in-out infinite;
+    /* Aplicar la animación al color principal, no a la clase time completa, 
+       pero dado que el HTML no separa los dos puntos, se aplica a la hora completa.
+       Se asume que JS añadirá la clase .blink solo al elemento que contenga los dos puntos (si los tuviera). 
+       Si no, el reloj parpadeará entero.
+    */
+    animation: blink 1s ease-in-out infinite; 
 }

@@ -2,8 +2,16 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Índice de Ejercicios – Boss Mode</title>
+  <title>Índice de Ejercicios – Boss Mode de Fuego</title>
   <style>
+    /* Paleta de Fuego */
+    /* Rojo Profundo (Fondo, Base Oscura): #4D0000 */
+    /* Naranja Fuego (Acento, Brillo): #FF4500 */
+    /* Naranja Oscuro (Acento Secundario): #FF8C00 */
+    /* Negro Carbón: #1A0000 */
+    /* Texto Cálido/Beige: #FFE0B2 */
+    /* Oro/Brillo: #FFD700 */
+
     /* Reset básico */
     * {
       box-sizing: border-box;
@@ -14,12 +22,13 @@
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       min-height: 100vh;
+      /* CAMBIO CLAVE: Degradado de Fondo Dramático y Ardiente */
       background:
-        radial-gradient(circle at 0% 0%, #3b82f6 0, transparent 55%),
-        radial-gradient(circle at 100% 0%, #ec4899 0, transparent 55%),
-        radial-gradient(circle at 0% 100%, #22c55e 0, transparent 55%),
-        radial-gradient(circle at 100% 100%, #a855f7 0, #020617 70%);
-      color: #e5e7eb;
+        radial-gradient(circle at 0% 0%, #FF8C00 0, transparent 55%),
+        radial-gradient(circle at 100% 0%, #FF4500 0, transparent 55%),
+        radial-gradient(circle at 0% 100%, #8B0000 0, transparent 55%),
+        radial-gradient(circle at 100% 100%, #4D0000 0, #1A0000 70%); /* Rojo Oscuro a Negro Carbón */
+      color: #FFE0B2; /* Texto en tono cálido */
       display: flex;
       justify-content: center;
       align-items: flex-start;
@@ -29,15 +38,16 @@
     .shell {
       width: 100%;
       max-width: 1150px;
-      background: radial-gradient(circle at top left, rgba(148, 163, 184, 0.12), transparent 55%),
-                  rgba(15, 23, 42, 0.92);
+      /* CAMBIO CLAVE: Fondo del Shell - Negro Carbón con Resplandor Rojo/Naranja */
+      background: radial-gradient(circle at top left, rgba(255, 140, 0, 0.15), transparent 55%),
+                  rgba(26, 0, 0, 0.94); /* Negro Carbón más opaco */
       border-radius: 22px;
       padding: 26px 26px 30px;
       box-shadow:
-        0 0 50px rgba(0, 0, 0, 0.75),
-        0 0 0 1px rgba(148, 163, 184, 0.2);
+        0 0 50px rgba(0, 0, 0, 0.9),
+        0 0 0 1px rgba(255, 69, 0, 0.3); /* Borde de resplandor sutil */
       backdrop-filter: blur(18px);
-      border: 1px solid rgba(79, 70, 229, 0.35);
+      border: 1px solid rgba(255, 69, 0, 0.5); /* Borde de llama */
       position: relative;
       overflow: hidden;
     }
@@ -47,11 +57,12 @@
       content: "";
       position: absolute;
       inset: -40%;
+      /* CAMBIO CLAVE: Conic Gradient de Fuego */
       background:
-        conic-gradient(from 180deg at 50% 50%, rgba(56, 189, 248, 0.15), rgba(244, 114, 182, 0.2), rgba(129, 140, 248, 0.22), rgba(34, 197, 94, 0.16), rgba(56, 189, 248, 0.15));
-      opacity: 0.55;
+        conic-gradient(from 180deg at 50% 50%, rgba(255, 140, 0, 0.2), rgba(255, 69, 0, 0.25), rgba(255, 215, 0, 0.3), rgba(139, 0, 0, 0.2), rgba(255, 140, 0, 0.2));
+      opacity: 0.7; /* Más intenso */
       mix-blend-mode: screen;
-      filter: blur(26px);
+      filter: blur(30px); /* Más blur */
       animation: aura 18s linear infinite;
       pointer-events: none;
     }
@@ -82,34 +93,37 @@
       display: flex;
       align-items: center;
       gap: 10px;
+      color: #FFD700; /* Título en Oro/Brillo */
     }
 
     .title-pill {
       font-size: 0.74rem;
       padding: 3px 9px;
       border-radius: 999px;
-      border: 1px solid rgba(129, 140, 248, 0.7);
-      background: radial-gradient(circle at 0 0, rgba(96, 165, 250, 0.4), transparent 45%);
+      /* Borde y fondo en tonos de llama */
+      border: 1px solid rgba(255, 69, 0, 0.9);
+      background: radial-gradient(circle at 0 0, rgba(255, 140, 0, 0.5), transparent 45%);
       text-transform: uppercase;
       letter-spacing: 0.14em;
-      color: #c7d2fe;
+      color: #FFD700; /* Texto de la píldora en Oro */
     }
 
     .subtitle {
       margin-top: 6px;
       font-size: 0.9rem;
-      color: #9ca3af;
+      color: #FFC0CB; /* Subtítulo en tono rosa cálido */
     }
 
     .badge {
       padding: 6px 12px;
       border-radius: 999px;
-      border: 1px solid rgba(52, 211, 153, 0.7);
-      background: radial-gradient(circle at 0 0, rgba(34, 197, 94, 0.45), transparent 55%);
+      /* Badge de Llama Intensa */
+      border: 1px solid rgba(255, 69, 0, 0.8);
+      background: radial-gradient(circle at 0 0, rgba(255, 140, 0, 0.6), transparent 55%);
       font-size: 0.78rem;
       text-transform: uppercase;
       letter-spacing: 0.12em;
-      color: #bbf7d0;
+      color: #FFD700; /* Texto del badge en Oro */
       white-space: nowrap;
     }
 
@@ -128,10 +142,11 @@
       position: relative;
       border-radius: 16px;
       padding: 14px 14px 16px;
-      background: linear-gradient(145deg, rgba(15, 23, 42, 0.96), rgba(30, 64, 175, 0.9));
+      /* CAMBIO CLAVE: Fondo de tarjeta - Degradado de Brasa Profunda */
+      background: linear-gradient(145deg, rgba(26, 0, 0, 0.96), rgba(77, 0, 0, 0.9)); /* Negro Carbón a Rojo Oscuro */
       box-shadow:
-        0 14px 30px rgba(15, 23, 42, 0.9),
-        0 0 0 1px rgba(148, 163, 184, 0.35);
+        0 14px 30px rgba(0, 0, 0, 0.9),
+        0 0 0 1px rgba(255, 140, 0, 0.3); /* Borde de resplandor de brasa */
       overflow: hidden;
     }
 
@@ -139,9 +154,10 @@
       content: "";
       position: absolute;
       inset: -40%;
+      /* Colores de resplandor de tarjeta: Rojo y Naranja */
       background:
-        radial-gradient(circle at 0 0, rgba(59, 130, 246, 0.5), transparent 55%),
-        radial-gradient(circle at 100% 100%, rgba(236, 72, 153, 0.45), transparent 55%);
+        radial-gradient(circle at 0 0, rgba(255, 69, 0, 0.6), transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(255, 140, 0, 0.5), transparent 55%);
       opacity: 0;
       transition: opacity 0.25s ease;
       pointer-events: none;
@@ -172,16 +188,17 @@
       font-size: 0.8rem;
       padding: 2px 8px;
       border-radius: 999px;
-      background: rgba(15, 23, 42, 0.85);
-      border: 1px solid rgba(129, 140, 248, 0.7);
-      color: #c7d2fe;
+      /* Píldora de módulo: Contraste de llama sobre oscuro */
+      background: rgba(26, 0, 0, 0.85);
+      border: 1px solid rgba(255, 69, 0, 0.7);
+      color: #FFD700; /* Texto en Oro */
       text-transform: uppercase;
       letter-spacing: 0.08em;
     }
 
     .module-sub {
       font-size: 0.8rem;
-      color: #cbd5f5;
+      color: #FFC0CB; /* Subtítulo cálido */
       opacity: 0.9;
     }
 
@@ -200,9 +217,10 @@
       text-decoration: none;
       padding: 7px 10px;
       border-radius: 10px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      color: #e5e7eb;
+      /* Fondo de los enlaces: Negro Carbón */
+      background: rgba(26, 0, 0, 0.9);
+      border: 1px solid rgba(77, 0, 0, 0.6); /* Borde de brasa */
+      color: #FFE0B2; /* Texto de enlace en beige cálido */
       font-size: 0.85rem;
       transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, background 0.18s ease;
     }
@@ -215,7 +233,7 @@
 
     .module-list a span.tag {
       font-size: 0.7rem;
-      color: #9ca3af;
+      color: #FFC0CB; /* Tag secundario en rosa cálido */
       opacity: 0.95;
     }
 
@@ -227,20 +245,22 @@
 
     .module-list a:hover {
       transform: translateY(-2px);
-      background: radial-gradient(circle at 0 0, rgba(59, 130, 246, 0.4), rgba(15, 23, 42, 0.95));
-      border-color: rgba(129, 140, 248, 0.9);
-      box-shadow: 0 12px 24px rgba(15, 23, 42, 0.95);
+      /* Hover de Llama Vigorosa */
+      background: radial-gradient(circle at 0 0, rgba(255, 69, 0, 0.4), rgba(26, 0, 0, 0.95));
+      border-color: rgba(255, 140, 0, 0.9);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.95);
+      color: #FFD700; /* Texto en Oro al hacer hover */
     }
 
     footer {
       margin-top: 18px;
       font-size: 0.78rem;
-      color: #9ca3af;
+      color: #FFC0CB; /* Footer en rosa cálido */
       text-align: right;
     }
 
     footer span {
-      color: #a5b4fc;
+      color: #FF8C00; /* Acento en Naranja Oscuro */
       font-weight: 600;
     }
 
@@ -277,7 +297,6 @@
 
       <main>
         <div class="modules-grid">
-          <!-- MÓDULO 1 -->
           <section class="module-card">
             <div class="module-header">
               <div class="module-title">
@@ -314,7 +333,6 @@
             </ul>
           </section>
 
-          <!-- MÓDULO 2 -->
           <section class="module-card">
             <div class="module-header">
               <div class="module-title">
@@ -339,7 +357,6 @@
             </ul>
           </section>
 
-          <!-- MÓDULO 3 -->
           <section class="module-card">
             <div class="module-header">
               <div class="module-title">
@@ -376,7 +393,6 @@
             </ul>
           </section>
 
-          <!-- MÓDULO 4 -->
           <section class="module-card">
             <div class="module-header">
               <div class="module-title">
@@ -419,7 +435,6 @@
             </ul>
           </section>
 
-          <!-- MÓDULO 5 -->
           <section class="module-card">
             <div class="module-header">
               <div class="module-title">
@@ -468,30 +483,29 @@
             </ul>
           </section>
 
-          <!-- MÓDULO 6 -->
           <section class="module-card">
-    <div class="module-header">
-        <div class="module-title">
-            <span class="code">Mod 6</span>
-            <span>Scripts: Interacción y Temas</span>
-        </div>
-    </div>
-    <p class="module-sub">Implementación de lógica para interactuar con la interfaz.</p>
-    <ul class="module-list">
-        <li>
-            <a href="./mod6Eje1/index.html">
-                <span class="label">Color Changer Script</span>
-                <span class="tag">Cambio de tema (Dark/Light)</span>
-            </a>
-        </li>
-        <li>
-            <a href="./Mod6Eje2/index.html">
-                <span class="label">Dashboard Tailwind CSS</span>
-                <span class="tag">Layout y tema oscuro</span>
-            </a>
-        </li>
-    </ul>
-</section>
+            <div class="module-header">
+              <div class="module-title">
+                <span class="code">Mod 6</span>
+                <span>Scripts: Interacción y Temas</span>
+              </div>
+            </div>
+            <p class="module-sub">Implementación de lógica para interactuar con la interfaz.</p>
+            <ul class="module-list">
+                <li>
+                    <a href="./mod6Eje1/index.html">
+                        <span class="label">Color Changer Script</span>
+                        <span class="tag">Cambio de tema (Dark/Light)</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./Mod6Eje2/index.html">
+                        <span class="label">Dashboard Tailwind CSS</span>
+                        <span class="tag">Layout y tema oscuro</span>
+                    </a>
+                </li>
+            </ul>
+          </section>
 
           <section class="module-card">
             <div class="module-header">
@@ -521,63 +535,106 @@
                 </a>
               </li>
             </ul>
-          </section> 
-           <!-- MÓDULO 8 -->
+          </section>
+
           <section class="module-card">
             <div class="module-header">
               <div class="module-title">
                 <span class="code">Mod 8</span>
-                <span>Extras &amp; refuerzo</span>
+                <span>Scripts &amp; Refuerzo Interactivo</span>
               </div>
             </div>
-            <p class="module-sub">Más práctica para terminar de subir todo el nivel.</p>
+            <p class="module-sub">Ejercicios de funcionalidad avanzada con JavaScript.</p>
             <ul class="module-list">
               <li>
                 <a href="./Mod8Eje1-calculadora/index.html">
                   <span class="label">Mod8Eje1-calculadora</span>
-                  <span class="tag">Ejercicio 1</span>
+                  <span class="tag">Calculadora</span>
                 </a>
               </li>
               <li>
                 <a href="./Mod8Eje2-contador/index.html">
                   <span class="label">Mod8Eje2-contador</span>
-                  <span class="tag">Ejercicio 2</span>
+                  <span class="tag">Contador Interactivo</span>
                 </a>
               </li>
               <li>
                 <a href="./Mod8Eje3-juego-memoria/index.html">
                   <span class="label">Mod8Eje3-juego-memoria</span>
-                  <span class="tag">Ejercicio 3</span>
+                  <span class="tag">Juego de Memoria</span>
                 </a>
               </li>
               <li>
                 <a href="./Mod8Eje3-tema/index.html">
                   <span class="label">Mod8Eje3-tema</span>
-                  <span class="tag"></span>
+                  <span class="tag">Selector Dark/Light Mode</span>
                 </a>
               </li>
               <li>
                 <a href="./Mod8Eje4-validacion/index.html">
                   <span class="label">Mod8Eje4-validacion</span>
-                  <span class="tag">Ejercicio 3</span>
+                  <span class="tag">Validador de Formulario</span>
                 </a>
               </li>
               <li>
                 <a href="./Mod8Eje5-colores/index.html">
                   <span class="label">Mod8Eje5-colores</span>
-                  <span class="tag">Ejercicio 3</span>
+                  <span class="tag">Generador de Colores</span>
                 </a>
               </li>
               <li>
                 <a href="./Mod8Eje6-reloj/index.html">
                   <span class="label">Mod8Eje6-reloj</span>
-                  <span class="tag">Ejercicio 3</span>
+                  <span class="tag">Reloj Digital</span>
                 </a>
               </li>
             </ul>
           </section>
+          
 
-          <!-- PROYECTO -->
+          <section class="module-card">
+            <div class="module-header">
+              <div class="module-title">
+                <span class="code">Mod 9</span>
+                <span>Scripts &amp; Refuerzo Interactivo</span>
+              </div>
+            </div>
+            <p class="module-sub">Ejercicios de funcionalidad avanzada con JavaScript.</p>
+            <ul class="module-list">
+              <li>
+                <a href="./Mod9Eje1-Todo-list/index.html">
+                  <span class="label">Mod9Eje1-Todo-list</span>
+                  <span class="tag">Lista</span>
+                </a>
+              </li>
+              <li>
+                <a href="./Mod9Eje2-Galeria-imagenes/index.html">
+                  <span class="label">Mod9Eje2-Galeria-imagenes</span>
+                  <span class="tag">Galería de Imágenes</span>
+                </a>
+              </li>
+              <li>
+                <a href="./Mod9Eje3-Carrito-Compras/index.html">
+                  <span class="label">Mod9Eje3-Carrito-Compras</span>
+                  <span class="tag">Carrito de Compras</span>
+                </a>
+              </li>
+              <li>
+                <a href="./Mod9Eje4-tabs/index.html">
+                  <span class="label">Mod9Eje4-tabs</span>
+                  <span class="tag">Tabs Interactivas</span>
+                </a>
+              </li>
+              <li>
+                <a href="./Mod9Eje5-modal/index.html">
+                  <span class="label">Mod9Eje5-modal</span>
+                  <span class="tag">Ventana Modal</span>
+                </a>
+              </li>
+              
+            </ul>
+          </section>
+
           <section class="module-card">
             <div class="module-header">
               <div class="module-title">

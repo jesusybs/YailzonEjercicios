@@ -1,13 +1,29 @@
+/* =====================================
+   ESTILO GLOBAL: Rojo Oscuro y Brasa
+   ===================================== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Paleta de Fuego */
+:root {
+    --color-primary-fire: #FF4500;   /* Rojo-Naranja Brillante (Llama) */
+    --color-secondary-fire: #FF8C00; /* Naranja Oscuro (Acento) */
+    --color-dark-fire: #4D0000;      /* Rojo Profundo (Fondo/Contraste) */
+    --color-background-dark: #1A0000;/* Negro Carbón */
+    --color-text-highlight: #FFD700; /* Oro/Brillo */
+    --color-card-bg: #2b0000;        /* Fondo de tarjeta de Brasa */
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #1a1a2e;
+    /* Fondo oscuro dramático */
+    background: linear-gradient(135deg, var(--color-background-dark) 0%, var(--color-dark-fire) 100%);
     color: white;
+    min-height: 100vh;
+    overflow-x: hidden;
 }
 
 .container {
@@ -23,6 +39,8 @@ body {
     text-align: center;
     margin-bottom: 3rem;
     font-size: 2.5rem;
+    /* Título color llama */
+    color: var(--color-secondary-fire); 
 }
 
 /* ================================
@@ -40,12 +58,14 @@ body {
 .hero-title {
     font-size: 5rem;
     margin-bottom: 1rem;
+    color: var(--color-text-highlight); /* Título en Oro */
     animation: fadeInDown 1s ease;
 }
 
 .hero-subtitle {
     font-size: 1.5rem;
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--color-text-light);
+    opacity: 0.7;
     animation: fadeInUp 1s ease 0.3s backwards;
 }
 
@@ -57,6 +77,8 @@ body {
     to {
         opacity: 1;
         transform: translateY(0);
+        /* Resplandor al aparecer */
+        text-shadow: 0 0 10px rgba(255, 140, 0, 0.5); 
     }
 }
 
@@ -80,8 +102,9 @@ body {
 .arrow {
     width: 30px;
     height: 30px;
-    border-right: 3px solid white;
-    border-bottom: 3px solid white;
+    /* Flecha en color llama */
+    border-right: 3px solid var(--color-primary-fire); 
+    border-bottom: 3px solid var(--color-primary-fire);
     transform: rotate(45deg);
     margin: 1rem auto;
     animation: bounce 2s infinite;
@@ -111,8 +134,8 @@ body {
 .spinner {
     width: 60px;
     height: 60px;
-    border: 5px solid rgba(255, 255, 255, 0.3);
-    border-top-color: white;
+    border: 5px solid rgba(255, 140, 0, 0.3); /* Base de brasa */
+    border-top-color: var(--color-primary-fire); /* El movimiento es la llama */
     border-radius: 50%;
     animation: spin 1s linear infinite;
 }
@@ -132,7 +155,7 @@ body {
 .dot {
     width: 15px;
     height: 15px;
-    background: white;
+    background: var(--color-secondary-fire);
     border-radius: 50%;
     animation: dotPulse 1.4s infinite both;
 }
@@ -153,6 +176,7 @@ body {
     40% {
         transform: scale(1);
         opacity: 1;
+        background: var(--color-primary-fire); /* El pulso es el destello de la llama */
     }
 }
 
@@ -161,7 +185,8 @@ body {
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    background: rgba(102, 126, 234, 0.5);
+    /* Pulso en tonos de fuego */
+    background: rgba(255, 69, 0, 0.5); 
     animation: pulseRing 2s infinite;
 }
 
@@ -169,6 +194,7 @@ body {
     0% {
         transform: scale(0.8);
         opacity: 1;
+        box-shadow: 0 0 10px var(--color-secondary-fire);
     }
     100% {
         transform: scale(2);
@@ -188,10 +214,12 @@ body {
 
 .card {
     height: 300px;
-    background: #2a2a3e;
+    /* Fondo de tarjeta de brasa */
+    background: var(--color-card-bg); 
     border-radius: 15px;
     overflow: hidden;
     position: relative;
+    border: 1px solid var(--color-dark-fire);
 }
 
 /* Flip Card */
@@ -212,7 +240,9 @@ body {
 }
 
 .card-back {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    /* El reverso es Llama Vigorosa */
+    background: linear-gradient(135deg, var(--color-primary-fire) 0%, var(--color-secondary-fire) 100%); 
+    color: var(--color-background-dark);
     transform: rotateY(180deg);
 }
 
@@ -229,21 +259,26 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    /* Dar un tono cálido a las imágenes */
+    filter: brightness(0.8) saturate(1.2); 
+    transition: filter 0.5s;
 }
+.card-slide:hover img {
+    filter: brightness(1) saturate(1.4);
+}
+
 
 .card-overlay {
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+    /* Overlay con gradiente de brasa */
+    background: linear-gradient(to top, rgba(77, 0, 0, 0.9), transparent); 
     padding: 2rem;
     transform: translateY(100%);
     transition: transform 0.4s;
-}
-
-.card-slide:hover .card-overlay {
-    transform: translateY(0);
+    color: var(--color-text-light);
 }
 
 /* Zoom Effect */
@@ -256,10 +291,12 @@ body {
     height: 100%;
     object-fit: cover;
     transition: transform 0.5s;
+    filter: brightness(0.9);
 }
 
 .card-zoom:hover img {
     transform: scale(1.2);
+    filter: brightness(1.1);
 }
 
 .card-content {
@@ -268,7 +305,9 @@ body {
     left: 0;
     right: 0;
     padding: 1.5rem;
-    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    /* Fondo de brasa oscura */
+    background: linear-gradient(to top, rgba(26, 0, 0, 0.9), transparent); 
+    color: var(--color-text-light);
 }
 
 /* ================================
@@ -278,12 +317,15 @@ body {
     opacity: 0;
     margin: 2rem 0;
     padding: 2rem;
-    background: #2a2a3e;
+    /* Fondo de brasa */
+    background: #3c3c3c; 
     border-radius: 10px;
 }
 
 .animate-on-scroll.visible {
     opacity: 1;
+    /* Resplandor suave al hacerse visible */
+    box-shadow: 0 0 15px rgba(255, 140, 0, 0.3); 
 }
 
 .fade-in.visible {
@@ -308,6 +350,7 @@ body {
     to {
         transform: translateX(0);
         opacity: 1;
+        border-left: 5px solid var(--color-primary-fire); /* Borde de entrada de llama */
     }
 }
 
@@ -323,6 +366,7 @@ body {
     to {
         transform: translateX(0);
         opacity: 1;
+        border-right: 5px solid var(--color-primary-fire); /* Borde de entrada de llama */
     }
 }
 
@@ -361,11 +405,12 @@ body {
     position: relative;
     overflow: hidden;
     transition: all 0.3s;
+    color: var(--color-background-dark); /* Texto oscuro para contraste */
 }
 
 .btn-ripple {
-    background: #667eea;
-    color: white;
+    background: var(--color-primary-fire);
+    color: var(--color-background-dark);
 }
 
 .btn-ripple::before {
@@ -374,7 +419,8 @@ body {
     width: 0;
     height: 0;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.5);
+    /* Ripple en Oro Brillante */
+    background: rgba(255, 215, 0, 0.7); 
     transform: translate(-50%, -50%);
     transition: width 0.6s, height 0.6s;
 }
@@ -386,8 +432,8 @@ body {
 
 .btn-slide {
     background: transparent;
-    border: 2px solid #667eea;
-    color: #667eea;
+    border: 2px solid var(--color-primary-fire);
+    color: var(--color-primary-fire);
 }
 
 .btn-slide::before {
@@ -397,13 +443,14 @@ body {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: #667eea;
+    /* Slide de fondo en Naranja Oscuro */
+    background: var(--color-secondary-fire); 
     transition: left 0.3s;
     z-index: -1;
 }
 
 .btn-slide:hover {
-    color: white;
+    color: var(--color-background-dark);
 }
 
 .btn-slide:hover::before {
@@ -411,39 +458,25 @@ body {
 }
 
 .btn-glow {
-    background: #667eea;
-    color: white;
-    box-shadow: 0 0 0 rgba(102, 126, 234, 0.5);
+    background: var(--color-primary-fire);
+    color: var(--color-background-dark);
+    box-shadow: 0 0 0 rgba(255, 69, 0, 0.5);
     transition: box-shadow 0.3s;
 }
 
 .btn-glow:hover {
-    box-shadow: 0 0 20px rgba(102, 126, 234, 0.8),
-                0 0 40px rgba(102, 126, 234, 0.6);
+    /* Glow intenso de llama */
+    box-shadow: 0 0 20px rgba(255, 69, 0, 0.8),
+                0 0 40px rgba(255, 69, 0, 0.6);
 }
 
 .btn-bounce {
-    background: #667eea;
-    color: white;
+    background: var(--color-primary-fire);
+    color: var(--color-background-dark);
 }
 
 .btn-bounce:hover {
     animation: bounceBtn 0.5s;
-}
-
-@keyframes bounceBtn {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    25% {
-        transform: translateY(-10px);
-    }
-    50% {
-        transform: translateY(0);
-    }
-    75% {
-        transform: translateY(-5px);
-    }
 }
 
 /* ================================
@@ -456,6 +489,7 @@ body {
     position: relative;
     color: white;
     animation: glitchText 5s infinite;
+    text-shadow: 0 0 10px var(--color-secondary-fire);
 }
 
 .glitch::before,
@@ -470,17 +504,20 @@ body {
 
 .glitch::before {
     left: 2px;
-    text-shadow: -2px 0 #ff00de;
+    /* Glitch en Rojo Vigoroso */
+    text-shadow: -2px 0 var(--color-primary-fire); 
     animation: glitchAnim 3s infinite linear alternate-reverse;
 }
 
 .glitch::after {
     left: -2px;
-    text-shadow: 2px 0 #00ffff;
+    /* Glitch en Naranja Brillante */
+    text-shadow: 2px 0 var(--color-secondary-fire); 
     animation: glitchAnim 2s infinite linear alternate-reverse;
 }
 
 @keyframes glitchAnim {
+    /* Mantenemos la complejidad del glitch, solo cambiamos los colores */
     0% {
         clip-path: inset(40% 0 61% 0);
     }
@@ -504,7 +541,8 @@ body {
 .gradient-text {
     font-size: 4rem;
     text-align: center;
-    background: linear-gradient(45deg, #667eea, #764ba2, #667eea);
+    /* Degradado de Llama y Brasa */
+    background: linear-gradient(45deg, var(--color-primary-fire), var(--color-secondary-fire), var(--color-dark-fire)); 
     background-size: 200% 200%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -524,7 +562,8 @@ body {
     font-size: 3rem;
     text-align: center;
     overflow: hidden;
-    border-right: 3px solid white;
+    /* Borde del cursor en Naranja Oscuro */
+    border-right: 3px solid var(--color-secondary-fire); 
     white-space: nowrap;
     animation: typing 3.5s steps(40) 1s 1 normal both,
                blink 0.7s infinite;

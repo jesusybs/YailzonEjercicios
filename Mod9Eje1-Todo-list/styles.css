@@ -1,0 +1,225 @@
+/* =====================================
+   ESTILO GLOBAL: Rojo Oscuro y Brasa
+   ===================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Paleta de Fuego */
+:root {
+    --color-primary-fire: #FF4500;   /* Rojo-Naranja Brillante (Acción/Llama) */
+    --color-secondary-fire: #FF8C00; /* Naranja Oscuro (Acento) */
+    --color-dark-fire: #4D0000;      /* Rojo Profundo (Fondo/Contraste) */
+    --color-background-dark: #1A0000;/* Negro Carbón */
+    --color-text-light: #FFE0B2;     /* Texto Cálido/Beige */
+    --color-error: #8B0000;          /* Rojo Oscuro Intenso (Eliminar) */
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Fondo dramático */
+    background: linear-gradient(135deg, var(--color-background-dark) 0%, var(--color-dark-fire) 100%);
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    /* Texto de la cabecera en tono cálido */
+    color: var(--color-text-light); 
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    /* Título color llama */
+    color: var(--color-secondary-fire); 
+}
+
+.todo-app {
+    /* Fondo oscuro/carbón */
+    background: #1e1e1e;
+    border-radius: 15px;
+    padding: 2rem;
+    /* Sombra de resplandor naranja */
+    box-shadow: 0 20px 60px rgba(255, 69, 0, 0.3);
+    border: 1px solid var(--color-dark-fire);
+}
+
+.input-section {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+#todoInput {
+    flex: 1;
+    padding: 1rem;
+    /* Input oscuro */
+    background: #333; 
+    color: white;
+    border: 2px solid #555; 
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+/* Botón Agregar: Llama Vigorosa */
+#addBtn {
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, var(--color-primary-fire) 0%, #FFA500 100%);
+    color: var(--color-background-dark); 
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+#addBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 69, 0, 0.6); 
+}
+
+/* FILTROS */
+.filters {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.filter-btn {
+    flex: 1;
+    padding: 0.8rem;
+    background: #333; /* Fondo de brasa apagada */
+    color: var(--color-text-light);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 600;
+}
+
+.filter-btn.active {
+    /* Filtro Activo: Naranja Fuego */
+    background: var(--color-secondary-fire); 
+    color: var(--color-background-dark);
+    box-shadow: 0 0 10px rgba(255, 140, 0, 0.5);
+}
+
+.count {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.2rem 0.5rem;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    margin-left: 0.3rem;
+}
+
+/* LISTA DE TAREAS */
+.todo-list {
+    list-style: none;
+    margin-bottom: 1.5rem;
+    max-height: 400px;
+    overflow-y: auto;
+    /* Estilizar el scrollbar para el modo oscuro (ejemplo básico) */
+    scrollbar-color: var(--color-secondary-fire) #333; 
+    scrollbar-width: thin;
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    /* Fondo de item: Negro Carbón sutil */
+    background: #2b2b2b; 
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    transition: all 0.3s;
+    border-left: 4px solid var(--color-dark-fire);
+}
+
+.todo-item:hover {
+    /* Resplandor al pasar el ratón */
+    background: #3c3c3c; 
+    border-left-color: var(--color-secondary-fire);
+}
+
+.todo-item.completed {
+    opacity: 0.5;
+    /* Borde verde opaco para completado */
+    border-left-color: #4CAF50; 
+}
+
+.todo-item.completed .todo-text {
+    text-decoration: line-through;
+    color: #999;
+}
+
+.todo-checkbox {
+    width: 24px;
+    height: 24px;
+    margin-right: 1rem;
+    cursor: pointer;
+    /* Puedes necesitar JS o CSS avanzado para estilizar el checkbox,
+       pero aquí mantenemos el estilo por defecto con colores de fondo oscuro. */
+    accent-color: var(--color-primary-fire);
+}
+
+.todo-text {
+    flex: 1;
+    font-size: 1rem;
+    color: var(--color-text-light);
+}
+
+/* Botón Eliminar: Rojo Oscuro Peligro */
+.delete-btn {
+    background: var(--color-error);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    background: #A52A2A;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* Separador de brasa */
+    border-top: 1px solid var(--color-dark-fire); 
+    padding-top: 1rem;
+}
+
+/* Botón Limpiar Completadas: Rojo Oscuro Peligro */
+#clearCompleted {
+    background: var(--color-error); 
+    color: white;
+    border: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+}
+#clearCompleted:hover {
+    background: #A52A2A;
+    box-shadow: 0 2px 10px rgba(139, 0, 0, 0.5);
+}
+
+#itemsLeft {
+    /* Texto de resumen en tono cálido */
+    color: var(--color-text-light); 
+    font-size: 0.9rem;
+    font-weight: 600;
+}

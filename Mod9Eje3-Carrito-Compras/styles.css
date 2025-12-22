@@ -1,0 +1,474 @@
+/* =====================================
+   ESTILO GLOBAL: Rojo Oscuro y Llama
+   ===================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Paleta de Fuego */
+:root {
+    --color-primary-fire: #FF4500;   /* Rojo-Naranja Brillante (Precios/Añadir) */
+    --color-secondary-fire: #FF8C00; /* Naranja Oscuro (Acento) */
+    --color-dark-fire: #4D0000;      /* Rojo Profundo (Fondo/Contraste) */
+    --color-background-dark: #1A0000;/* Negro Carbón */
+    --color-text-light: #FFE0B2;     /* Texto Cálido/Beige */
+    --color-error: #8B0000;          /* Rojo Oscuro Intenso (Eliminar) */
+    --color-success: #FFD700;        /* Oro/Brillo (Pago/Éxito) */
+    --color-card-bg: #2b2b2b;        /* Fondo de tarjeta oscuro */
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Fondo dramático */
+    background: linear-gradient(135deg, var(--color-background-dark) 0%, var(--color-dark-fire) 100%);
+    min-height: 100vh;
+    padding: 1rem;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Header */
+.header {
+    /* Fondo oscuro de carbón */
+    background: var(--color-card-bg); 
+    padding: 1.5rem 2rem;
+    border-radius: 15px;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* Sombra de resplandor sutil */
+    box-shadow: 0 5px 20px rgba(255, 69, 0, 0.2); 
+    border: 1px solid var(--color-dark-fire);
+}
+
+.header h1 {
+    /* Título color llama */
+    color: var(--color-secondary-fire); 
+}
+
+.cart-icon {
+    position: relative;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--color-text-light);
+}
+
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    /* Contador de artículos: Rojo Oscuro Peligro */
+    background: var(--color-error); 
+    color: white;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+/* Main Content */
+.main-content {
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 2rem;
+}
+
+/* Products Section */
+.products-section {
+    background: var(--color-card-bg);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    border: 1px solid #333;
+}
+
+.products-section h2 {
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.product-card {
+    background: #3c3c3c; /* Fondo de tarjeta más claro */
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    /* Resplandor al hacer hover */
+    box-shadow: 0 8px 20px rgba(255, 140, 0, 0.4); 
+}
+
+.product-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    /* Imagen de placeholder con degradado de fuego */
+    background: linear-gradient(135deg, var(--color-primary-fire) 0%, var(--color-secondary-fire) 100%);
+    color: var(--color-background-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+}
+
+.product-info {
+    padding: 1.5rem;
+}
+
+.product-name {
+    color: var(--color-text-light);
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.product-description {
+    color: #a0a0a0;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.product-price {
+    /* Precio: Rojo-Naranja Brillante */
+    color: var(--color-primary-fire); 
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.product-stock {
+    font-size: 0.85rem;
+    color: #4caf50; /* Mantener verde para stock alto, es un buen contraste */
+    margin-bottom: 1rem;
+}
+
+.product-stock.low {
+    /* Stock bajo: Naranja Advertencia */
+    color: var(--color-secondary-fire); 
+}
+
+.btn-add-cart {
+    width: 100%;
+    padding: 0.8rem;
+    /* Botón: Degradado de Llama */
+    background: linear-gradient(135deg, var(--color-secondary-fire) 0%, var(--color-primary-fire) 100%);
+    color: var(--color-background-dark);
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-add-cart:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 69, 0, 0.5);
+}
+
+.btn-add-cart:disabled {
+    /* Deshabilitado: Gris Carbón */
+    background: #444; 
+    color: #777;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Cart Section */
+.cart-section {
+    background: var(--color-card-bg);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    height: fit-content;
+    position: sticky;
+    top: 1rem;
+    border: 1px solid var(--color-dark-fire);
+}
+
+.cart-section h2 {
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+}
+
+.cart-items {
+    max-height: 400px;
+    overflow-y: auto;
+    margin-bottom: 1.5rem;
+    /* Estilizar scrollbar para modo oscuro */
+    scrollbar-color: var(--color-secondary-fire) #333; 
+    scrollbar-width: thin;
+}
+
+.empty-cart {
+    text-align: center;
+    color: #a0a0a0;
+    padding: 2rem;
+}
+
+.cart-item {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    background: #3c3c3c;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    animation: slideIn 0.3s ease;
+    border-left: 3px solid var(--color-secondary-fire);
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.cart-item-image {
+    width: 60px;
+    height: 60px;
+    /* Imagen de placeholder con degradado de fuego */
+    background: linear-gradient(135deg, var(--color-primary-fire) 0%, var(--color-secondary-fire) 100%);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    flex-shrink: 0;
+    color: var(--color-background-dark);
+}
+
+.cart-item-info {
+    flex: 1;
+}
+
+.cart-item-name {
+    font-weight: 600;
+    color: var(--color-text-light);
+    margin-bottom: 0.3rem;
+}
+
+.cart-item-price {
+    color: var(--color-primary-fire);
+    font-weight: bold;
+}
+
+.cart-item-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.qty-btn {
+    width: 28px;
+    height: 28px;
+    border: none;
+    /* Botones de cantidad: Naranja Oscuro */
+    background: var(--color-secondary-fire); 
+    color: var(--color-background-dark);
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.qty-btn:hover {
+    background: var(--color-primary-fire);
+}
+
+.qty-display {
+    min-width: 30px;
+    text-align: center;
+    font-weight: 600;
+    color: var(--color-text-light);
+}
+
+.btn-remove {
+    margin-left: auto;
+    /* Botón remover: Rojo Oscuro Peligro */
+    background: var(--color-error); 
+    color: white;
+    border: none;
+    padding: 0.3rem 0.8rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.85rem;
+}
+
+.btn-remove:hover {
+    background: #A52A2A;
+}
+
+/* Cart Summary */
+.cart-summary {
+    /* Separador de brasa */
+    border-top: 2px solid var(--color-dark-fire); 
+    padding-top: 1rem;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.8rem;
+    color: var(--color-text-light);
+}
+
+.summary-row.total {
+    font-size: 1.3rem;
+    font-weight: bold;
+    /* Total: Oro brillante */
+    color: var(--color-success); 
+    margin-top: 1rem;
+    padding-top: 1rem;
+    /* Separador de total más brillante */
+    border-top: 2px solid var(--color-secondary-fire); 
+}
+
+.btn-checkout {
+    width: 100%;
+    padding: 1rem;
+    /* Botón de Pago: Oro a Naranja (Máximo logro) */
+    background: linear-gradient(135deg, var(--color-success) 0%, var(--color-secondary-fire) 100%);
+    color: var(--color-background-dark);
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin-bottom: 0.5rem;
+    transition: all 0.3s;
+}
+
+.btn-checkout:hover {
+    background: linear-gradient(135deg, #FFD700 0%, #FF6347 100%);
+    transform: translateY(-4px);
+    /* Sombra de éxito ardiente */
+    box-shadow: 0 10px 20px rgba(255, 215, 0, 0.5); 
+}
+
+.btn-clear {
+    width: 100%;
+    padding: 0.8rem;
+    background: transparent;
+    /* Borde de Rojo Oscuro Peligro */
+    color: var(--color-error); 
+    border: 2px solid var(--color-error);
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-clear:hover {
+    background: var(--color-error);
+    color: white;
+}
+
+/* Modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Overlay dramático */
+    background: rgba(0, 0, 0, 0.85); 
+    backdrop-filter: blur(8px);
+}
+
+.modal-content {
+    position: relative;
+    /* Contenido de modal en color cálido/claro */
+    background: #fff8e0; 
+    padding: 3rem;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 400px;
+    /* Sombra de éxito ardiente */
+    box-shadow: 0 20px 60px rgba(255, 215, 0, 0.4); 
+    z-index: 1;
+}
+
+.success-icon {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+    /* Icono de éxito en Oro */
+    color: var(--color-success); 
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.modal-content h2 {
+    color: var(--color-background-dark);
+    margin-bottom: 1rem;
+}
+
+.modal-content p {
+    color: #555;
+    margin-bottom: 0.5rem;
+}
+
+.btn-primary {
+    margin-top: 1.5rem;
+    padding: 1rem 2rem;
+    /* Botón de cierre: Llama */
+    background: linear-gradient(135deg, var(--color-primary-fire) 0%, var(--color-secondary-fire) 100%);
+    color: var(--color-background-dark);
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+    .main-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .cart-section {
+        position: static;
+    }
+}
+
+@media (max-width: 768px) {
+    .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+}
